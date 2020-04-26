@@ -25,65 +25,73 @@ Ganar completar lineas y nave aterriza para conquista
 
 ## MVP - User stories
 
-### Iteration 1 - Primeros elementos
+### Iteration 1 - Create Board
 
-    1. Crear Tablero
+    1. Create Board
+    2. Display Board
+   
+### Iteration 2 - Crear Pieza
+
     2. Crear Pieza
     3. Display Pieza
     
-### Iteration 2 - Movimiento piezas
+### Iteration 3 - Movimiento pieza
 
     1. Down Pieza
     
 
 ## Backlog
 
-### Iteration 1 - Primeros elementos
+### Iteration 1 - Crear Tablero
 
     1. Crear Tablero
+    2. Display Tablero
+    3. 
+### Iteration 2 - Crear Pieza
+
     2. Crear Pieza
     3. Display Pieza
     
-### Iteration 2 - Movimiento piezas
+### Iteration 3 - Movimiento pieza
 
     1. Down Pieza
     
-### Iteration 3 - Controles
+### Iteration 4 - Controles
 
     1. Left/Right
     2. Down + aumento velocidad
     3. Detectar colisiones laterales
     4. Detectar colision Down
    
-### Iteration 4 - Controles
+### Iteration 5 - Controles
 
     1. Rotate
 
-### Iteration 5 - Botones
+### Iteration 6 - Botones
 
     1. Inicio / Pause
 
-### Iteration 6 - Crear Mas piezas
+### Iteration 7 - Crear Mas piezas
 
-### Iteration 7 - En cajar Piezas
+### Iteration 8 - Encajar Piezas
 
-### Iteration 8 - Control Lineas Completa
+### Iteration 9 - Control Lineas Completa
 
-### Iteration 9 - Eliminacion lineas Completas
+### Iteration 10 - Eliminacion lineas Completas
 
-### Iteration 10 - Aumento velocidad cada x filas o nivel?
+### Iteration 11 - Aumento velocidad cada x filas o nivel?
 
-### Iteration 11 - Score 
+### Iteration 12 - Score 
 
-### Iteration 12 - Next block
+### Iteration 13 - Next block
 
-### Iteration 13 - Se llena el tablero Explota
+### Iteration 14 - Se llena el tablero Explota
 
-### Iteration 14 WIN/ Next Level
+### Iteration 15 WIN/ Next Level
 
-### Iteration 14 Game over
+### Iteration 16 Game over
 
-### Iteration 15 Stilo Juego
+### Iteration 17 Stilo Juego
 
 #### Estilo Piezas 
 
