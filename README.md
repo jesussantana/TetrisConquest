@@ -1,25 +1,25 @@
 # (Tetris Conquest)
 
-## Descripción
+## Description
 
-    El juego es una versión de tetris ambientada en la conquista planetaria mediante terraformación.
+The game is a tetris version set in planetary conquest by terraforming.
 
-    Nuestra nave llega al planeta y lanza bloques de elementos quimicos para transformar el planeta y convertirlo en habitable.
+ Our ship reaches the planet and launches blocks of chemical elements to transform the planet and make it habitable.
     
-## Reglas del juego 
+## Rules of the game 
 
-Ganar completar lineas y nave aterriza para conquista
+Win complete lines and ship land to conquer
 
-1. LLega nave y comienza tetris
-2. Bajan bloques para completar filas
-3. Completar filas aumenta puntuacion.
-4. Completar x filas tablero aumenta puntuacion.
-5. Una vez completo tablero de bloques / Win End - NEXT LEVEL
-6. Bloques chocan con nave / parte superior GAME OVER
+1. Ship arrives and tetris begins
+2. Blocks go down to complete rows
+3. Completing rows increases punctuation.
+4. Complete x board rows increases score.
+5. Once complete block board / Win End - NEXT LEVEL
+6. Blocks collide with ship / top GAME OVER
  
  ### Next Level
 
-    Empieza de nuevo mas dificultad siguiente planeta
+Start again more difficulty next planet
         
    
 
@@ -35,41 +35,41 @@ Ganar completar lineas y nave aterriza para conquista
     2. Create Block
     3. Display Block
     
-### Iteration 3 - Movimiento pieza
+### Iteration 3 - Move Block
 
-    1. Down Pieza
+    1. Move Down Block
     
 
 ## Backlog
 
-### Iteration 1 - Crear Tablero
+### Iteration 1 - Create Board
 
-    1. Crear Tablero
-    2. Display Tablero
-    3. 
-### Iteration 2 - Crear Pieza
+    1. Create Board
+    2. Display Board
 
-    2. Crear Pieza
-    3. Display Pieza
+### Iteration 2 - Create Block
+
+    2. Create Block
+    3. Display Block
     
-### Iteration 3 - Movimiento pieza
+### Iteration 3 - Move Block
 
-    1. Down Pieza
+    1. Move Down Block
     
-### Iteration 4 - Controles
+### Iteration 4 - Controls-1
 
-    1. Left/Right
-    2. Down + aumento velocidad
-    3. Detectar colisiones laterales
-    4. Detectar colision Down
+    1. Left / Right
+    2. Down + speed increase
+    3. Detect side collisions
+    4. Detect collision Down
    
-### Iteration 5 - Controles
+### Iteration 5 - Controls-2
 
     1. Rotate
 
-### Iteration 6 - Botones
+### Iteration 6 - Buttons
 
-    1. Inicio / Pause
+    1. Start / Pause
 
 ### Iteration 7 - Crear Mas piezas
 
