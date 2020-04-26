@@ -30,10 +30,10 @@ Ganar completar lineas y nave aterriza para conquista
     1. Create Board
     2. Display Board
    
-### Iteration 2 - Crear Pieza
+### Iteration 2 - Create Block
 
-    2. Crear Pieza
-    3. Display Pieza
+    2. Create Block
+    3. Display Block
     
 ### Iteration 3 - Movimiento pieza
 
