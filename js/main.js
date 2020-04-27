@@ -14,16 +14,19 @@ let y = 0;
 function board() {
   context.fillStyle = "black";
   context.fillRect(0, 0, canvas.width, canvas.height);
+  grid();
 }
 
 board();
 
 // Create Board-Grid
-const grid = [];
-for (let i = 0; i < rows; i++) {
-  grid[i] = [];
-  for (let j = 0; j < columns; j++) {
-    grid[i][j] = 0;
+function grid(){
+  const grid = [];
+  for (let i = 0; i < rows; i++) {
+    grid[i] = [];
+    for (let j = 0; j < columns; j++) {
+      grid[i][j] = 0;
+    }
   }
 }
 
@@ -44,30 +47,61 @@ const block = [
 
 // Draw Block
 function drawBlock() {
-  // Check is Down
-  if (y <= rows) {
-    for (let i = 0; i < block.length; i++) {
-      for (let j = 0; j < block.length; j++) {
-        // Draw only full positions
-        if (block[i][j] != 0) {
-          //Delete previous position
-          context.fillStyle = "black";
-          context.fillRect(x, y - 1, 1, 1);
-          //Draw next Block
-          context.fillStyle = "yellow";
-          context.fillRect(x, y, 1, 1);
-        }
+  for (let i = 0; i < block.length; i++) {
+    for (let j = 0; j < block.length; j++) {
+      // Draw only full positions
+      if (block[i][j] != 0) {
+        //Delete previous position
+        delBlock();
+        //Draw next Block
+        displayBlock();
       }
     }
+  }
+}
+
+function displayBlock() {
+  context.fillStyle = "yellow";
+  context.fillRect(x, y, 1, 1);
+}
+
+function delBlock() {
+  //Delete previous position
+  context.fillStyle = "black";
+  context.fillRect(x, y - 1, 1, 1);
+}
+
+//Iteration 3 - Move block
+
+//Down Block
+function blockDown() {
+  // Check is Down
+  if (y < rows) {
+    drawBlock();
   }
   y++;
 }
 
-//Iteration 3 - Block Move
+//Iteration 4 - Controls-1
 
-//Down Block
-function blockDown() {
-  setInterval(drawBlock, 1000);
-};
+//1. Left / Right
+document.addEventListener("keydown", event => {
+  switch (event.key) {
+    case "ArrowRight":
+      delBlock();
+      x++;
+      break;
 
-blockDown();
+    case "ArrowLeft":
+      delBlock();
+      x--;
+      break;
+  }
+});
+
+function display(){
+  setInterval(blockDown, 1000);
+}
+
+display();
+
