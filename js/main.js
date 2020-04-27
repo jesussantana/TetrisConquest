@@ -97,11 +97,10 @@ document.addEventListener("keydown", event => {
       delBlock();
       x--;
       break;
-      
+
 // Down + speed increase
     case "ArrowDown":
-      delBlock();
-      y++;
+      blockDown();
       break;
   }
 });
