@@ -9,6 +9,7 @@ const columns = 10;
 
 let x = 4;
 let y = 0;
+let speed = 1000;
 
 //Iteration 1 - Create Board
 function board() {
@@ -20,7 +21,7 @@ function board() {
 board();
 
 // Create Board-Grid
-function grid(){
+function grid() {
   const grid = [];
   for (let i = 0; i < rows; i++) {
     grid[i] = [];
@@ -96,12 +97,17 @@ document.addEventListener("keydown", event => {
       delBlock();
       x--;
       break;
+      
+// Down + speed increase
+    case "ArrowDown":
+      delBlock();
+      y++;
+      break;
   }
 });
 
-function display(){
-  setInterval(blockDown, 1000);
+function display() {
+  setInterval(blockDown, speed);
 }
 
 display();
-
