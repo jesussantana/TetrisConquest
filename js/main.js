@@ -9,7 +9,7 @@ const columns = 10;
 
 let x = 4;
 let y = 0;
-let speed = 1000;
+let speed = 100;
 
 //Iteration 1 - Create Board
 function board() {
@@ -69,7 +69,7 @@ function displayBlock() {
 function delBlock() {
   //Delete previous position
   context.fillStyle = "black";
-  context.fillRect(x, y - 1, 1, 1);
+  context.fillRect(x, y - 0.1, 1, 1);
 }
 
 //Iteration 3 - Move block
@@ -77,10 +77,10 @@ function delBlock() {
 //Down Block
 function blockDown() {
   // Check is Down
-  if (y < rows) {
+  if (y < rows - 1) {
     drawBlock();
+    y += 0.1;
   }
-  y++;
 }
 
 //Iteration 4 - Controls-1
@@ -89,21 +89,36 @@ function blockDown() {
 document.addEventListener("keydown", event => {
   switch (event.key) {
     case "ArrowRight":
-      delBlock();
-      x++;
+      blockRight();
       break;
 
     case "ArrowLeft":
-      delBlock();
-      x--;
+      blockLeft();
       break;
 
-// Down + speed increase
+    // Down + speed increase
     case "ArrowDown":
       blockDown();
       break;
   }
 });
+
+//Detect Board collisions
+function blockLeft() {
+  // Check is Left
+  if (x > 0) {
+    delBlock();
+    x -= 0.1;
+  }
+}
+
+function blockRight() {
+  // Check is Right
+  if (x + 1 < columns) {
+    delBlock();
+    x += 0.1;
+  }
+}
 
 function display() {
   setInterval(blockDown, speed);
