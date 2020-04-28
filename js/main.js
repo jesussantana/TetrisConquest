@@ -4,31 +4,26 @@ const canvas = document.getElementById("tetris");
 const context = canvas.getContext("2d");
 
 // Board 20X10
-const rows = 20;
-const columns = 10;
-
-let x = 4;
-let y = 0;
-let speed = 100;
+const board = createMatrix(12, 20);
 
 //Iteration 1 - Create Board
-function board() {
+// Draw Board
+function drawGame() {
   context.fillStyle = "black";
   context.fillRect(0, 0, canvas.width, canvas.height);
-  grid();
 }
 
-board();
-
-// Create Board-Grid
-function grid() {
-  const grid = [];
-  for (let i = 0; i < rows; i++) {
-    grid[i] = [];
-    for (let j = 0; j < columns; j++) {
-      grid[i][j] = 0;
-    }
+let player = {
+  position: { x: 4, y: 0 },
+  matrix: null
+};
+// Create grid-matrix
+function createMatrix(width, height) {
+  const matrix = [];
+  while (height--) {
+    matrix.push(new Array(width).fill(0));
   }
+  return matrix;
 }
 
 // Iteration 2 - Create Block
@@ -37,50 +32,53 @@ function grid() {
 context.scale(20, 20);
 
 //Create Block
+
 const block = [
-  [
-    [0, 0, 0, 0],
-    [0, 1, 1, 0],
-    [0, 1, 1, 0],
-    [0, 0, 0, 0]
-  ]
+  [1, 1],
+  [1, 1]
 ];
 
 // Draw Block
-function drawBlock() {
-  for (let i = 0; i < block.length; i++) {
-    for (let j = 0; j < block.length; j++) {
-      // Draw only full positions
-      if (block[i][j] != 0) {
-        //Delete previous position
-        delBlock();
-        //Draw next Block
-        displayBlock();
+function drawMatrix(matrix, offset) {
+  matrix.forEach((row, y) => {
+    row.forEach((value, x) => {
+      if (value !== 0) {
+        context.fillStyle = "yellow";
+        context.fillRect(x + offset.x, y + offset.y, 1, 1);
       }
-    }
-  }
+    });
+  });
 }
 
-function displayBlock() {
-  context.fillStyle = "yellow";
-  context.fillRect(x, y, 1, 1);
+function drawGame() {
+  context.fillStyle = "#000";
+  context.fillRect(0, 0, canvas.width, canvas.height);
+
+  drawMatrix(board, { x: 0, y: 0 });
+  drawMatrix(player.matrix, player.position);
 }
 
-function delBlock() {
-  //Delete previous position
-  context.fillStyle = "black";
-  context.fillRect(x, y - 0.1, 1, 1);
+// Join Player & BOard
+function joinBoard(board, player) {
+  player.matrix.forEach((row, y) => {
+    row.forEach((value, x) => {
+      if (value !== 0) {
+        board[y + player.position.y][x + player.position.x] = value;
+      }
+    });
+  });
 }
 
 //Iteration 3 - Move block
 
 //Down Block
-function blockDown() {
-  // Check is Down
-  if (y < rows - 1) {
-    drawBlock();
-    y += 0.1;
+function blockDrop() {
+  player.position.y++;
+  if (collision(board, player)) {
+    player.position.y--;
+    joinBoard(board, player);
   }
+  dropCounter = 0;
 }
 
 //Iteration 4 - Controls-1
@@ -89,39 +87,66 @@ function blockDown() {
 document.addEventListener("keydown", event => {
   switch (event.key) {
     case "ArrowRight":
-      blockRight();
+      blockMove(1);
       break;
 
     case "ArrowLeft":
-      blockLeft();
+      blockMove(-1);
       break;
 
-    // Down + speed increase
+    // Down
     case "ArrowDown":
-      blockDown();
+      blockDrop();
       break;
   }
 });
 
-//Detect Board collisions
-function blockLeft() {
-  // Check is Left
-  if (x > 0) {
-    delBlock();
-    x -= 0.1;
+function blockMove(offset) {
+  // Check is Left and Right
+  player.position.x += offset;
+  if (collision(board, player)) {
+    player.position.x -= offset;
   }
 }
 
-function blockRight() {
-  // Check is Right
-  if (x + 1 < columns) {
-    delBlock();
-    x += 0.1;
+// check Collisions
+function collision(board, player) {
+  const matriz = player.matrix;
+  const offset = player.position;
+  //iterate Block
+  for (let y = 0; y < matriz.length; ++y) {
+    for (let x = 0; x < matriz[y].length; ++x) {
+      // Check position
+      if (
+        matriz[y][x] !== 0 &&
+        (board[y + offset.y] && board[y + offset.y][x + offset.x]) !== 0
+      ) {
+        return true;
+      }
+    }
   }
+  return false;
 }
 
-function display() {
-  setInterval(blockDown, speed);
+let dropCounter = 0;
+let dropInterval = 1000;
+
+let lastTime = 0;
+
+// update Game
+function update(time = 0) {
+  const deltaTime = time - lastTime;
+
+  dropCounter += deltaTime;
+  if (dropCounter > dropInterval) {
+    blockDrop();
+  }
+
+  lastTime = time;
+
+  drawGame();
+  requestAnimationFrame(update);
 }
 
-display();
+player.matrix = block;
+update();
