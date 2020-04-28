@@ -33,9 +33,82 @@ context.scale(20, 20);
 
 //Create Block
 
-const block = [
+/*const block = [
   [1, 1],
   [1, 1]
+];*/
+
+// Iteration 5 - Create Blocks
+
+//1. Create Blocks
+
+function createBlocks(type) {
+  switch (type) {
+    case "I":
+      return [
+        [0, 1, 0, 0],
+        [0, 1, 0, 0],
+        [0, 1, 0, 0],
+        [0, 1, 0, 0]
+      ];
+      break;
+    case "J":
+      return [
+        [0, 2, 0],
+        [0, 2, 0],
+        [2, 2, 0]
+      ];
+      break;
+    case "L":
+      return [
+        [0, 3, 0],
+        [0, 3, 0],
+        [0, 3, 3]
+      ];
+      break;
+    case "O":
+      return [
+        [4, 4],
+        [4, 4]
+      ];
+      break;
+    case "S":
+      return [
+        [0, 5, 5],
+        [5, 5, 0],
+        [0, 0, 0]
+      ];
+      break;
+    case "T":
+      return [
+        [0, 6, 0],
+        [6, 6, 6],
+        [0, 0, 0]
+      ];
+      break;
+    case "Z":
+      return [
+        [7, 7, 0],
+        [0, 7, 7],
+        [0, 0, 0]
+      ];
+      break;
+    default:
+      break;
+  }
+}
+
+//const block = 'IJLSOTZ'
+// Blocks Colors
+const colors = [
+  null,
+  "cyan",
+  "blue",
+  "orange",
+  "yellow",
+  "green",
+  "purple",
+  "red"
 ];
 
 // Draw Block
@@ -43,7 +116,7 @@ function drawMatrix(matrix, offset) {
   matrix.forEach((row, y) => {
     row.forEach((value, x) => {
       if (value !== 0) {
-        context.fillStyle = "yellow";
+        context.fillStyle = colors[value];
         context.fillRect(x + offset.x, y + offset.y, 1, 1);
       }
     });
@@ -85,7 +158,7 @@ function blockDrop() {
 
 //1. Left / Right
 document.addEventListener("keydown", event => {
-  switch (event.key) {
+  switch (event.code) {
     case "ArrowRight":
       blockMove(1);
       break;
@@ -128,9 +201,11 @@ function collision(board, player) {
   return false;
 }
 
+// Iteration 6 - Controls-2 Rotate
+//1. Rotate Blocks
+
 let dropCounter = 0;
 let dropInterval = 1000;
-
 let lastTime = 0;
 
 // update Game
@@ -148,5 +223,10 @@ function update(time = 0) {
   requestAnimationFrame(update);
 }
 
-player.matrix = block;
+//player.matrix = block;
+
+//Iteration 5.2. Display Random Blocks
+const block = "IJLSOTZ";
+player.matrix = createBlocks(block[(block.length * Math.random()) | 0]);
+
 update();

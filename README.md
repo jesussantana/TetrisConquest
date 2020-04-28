@@ -25,59 +25,66 @@ Start again more difficulty next planet
 
 ## MVP - User stories
 
-### Iteration 1 - Create Board
 
-    1. Create Board
-    2. Display Board
-   
-### Iteration 2 - Create Block
-
-    2. Create Block
-    3. Display Block
-    
-### Iteration 3 - Move Block
-
-    1. Move Down Block
-    
-
-## Backlog
-
-### Iteration 1 - Create Board
-
-    1. Create Board
-    2. Display Board
-
-### Iteration 2 - Create Block
-
-    2. Create Block
-    3. Display Block
-    
-### Iteration 3 - Move Block
-
-    1. Move Down Block
-    
 ### Iteration 4 - Controls-1
 
     1. Left / Right
     2. Down + speed increase
     3. Detect side collisions
     4. Detect collision Down
+    
+### Iteration 5 - Create Blocks 
+
+    1. Create Blocks
+    2. Display Random Blocks
+
+### Iteration 6 - Controls-2 Rotate
+
+    1. Rotate Blocks
+
+
+## Backlog
+
+
+### Iteration 1 - Create Board
+
+    1. Create Board
+    2. Display Board
+
+### Iteration 2 - Create Block
+
+    2. Create Block
+    3. Display Block
+    
+### Iteration 3 - Move Block
+
+    1. Move Down Block
+    
+### Iteration 4 - Controls-1 Directions
+
+    1. Left / Right
+    2. Down + speed increase
+    3. Detect side collisions
+    4. Detect collision Down
    
-### Iteration 5 - Controls-2
+### Iteration 5 - Create Blocks 
 
-    1. Rotate
+    1. Create Blocks
+    2. Display Random Blocks
 
-### Iteration 6 - Buttons
+### Iteration 6 - Controls-2 Rotate
+
+    1. Rotate Blocks
+
+### Iteration 7 - Fit Blocks
+
+### Iteration 8 - Control Complete Lines
+
+### Iteration 9 - Complete lines elimination
+
+### Iteration 10 - Buttons
 
     1. Start / Pause
-
-### Iteration 7 - Crear Mas piezas
-
-### Iteration 8 - Encajar Piezas
-
-### Iteration 9 - Control Lineas Completa
-
-### Iteration 10 - Eliminacion lineas Completas
 
 ### Iteration 11 - Aumento velocidad cada x filas o nivel?
 
@@ -102,10 +109,14 @@ Start again more difficulty next planet
 3. Score
 4. Next
 5. Pausa / Continua
- 
 
-### Iteration 15 Presentacion  
+### Iteration 15 Opcciones
 
-### Iteration 16 Musica   
+1. Tablero / Tamaño
+2. Obstaculos / Dificultad
 
-### Iteration 17 Next Level
+### Iteration 16 Presentacion  
+
+### Iteration 17 Musica   
+
+### Iteration 18 Next Level
