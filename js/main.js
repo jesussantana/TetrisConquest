@@ -93,12 +93,10 @@ function createBlocks(type) {
         [0, 0, 0]
       ];
       break;
-    default:
-      break;
   }
 }
 
-//const block = 'IJLSOTZ'
+//const block = 'IJLOSTZ'
 // Blocks Colors
 const colors = [
   null,
@@ -223,10 +221,10 @@ function update(time = 0) {
   requestAnimationFrame(update);
 }
 
-//player.matrix = block;
-
+//player.matrix = createBlocks("O");
 //Iteration 5.2. Display Random Blocks
 const block = "IJLSOTZ";
 player.matrix = createBlocks(block[(block.length * Math.random()) | 0]);
+
 
 update();
