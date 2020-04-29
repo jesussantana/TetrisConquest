@@ -44,7 +44,7 @@ function drawGame() {
   context.fillRect(0, 0, canvas.width, canvas.height);
 
   drawMatrix(board, { x: 0, y: 0 });
-  drawMatrix(player.matrix, player.position);
+  drawMatrix(block.matrix, block.position);
 }
 
 // Join Player & BOard
@@ -77,11 +77,11 @@ document.addEventListener("keydown", event => {
       break;
     // Rotate Left
     case "KeyZ":
-      player.Rotate(-1);
+      block.Rotate(-1);
       break;
     // Rotate Rightz
     case "KeyX":
-      player.Rotate(1);
+      block.Rotate(1);
       break;
   }
 });
@@ -145,8 +145,8 @@ function update(time = 0) {
 //Iteration 5.2. Display Random Blocks
 
 const block = new Blocks();
-const player = new Player();
-player.matrix = block.create(
+//const player = new Player();
+block.matrix = block.create(
   block.type[(block.type.length * Math.random()) | 0]
 );
 

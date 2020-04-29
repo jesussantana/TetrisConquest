@@ -1,5 +1,10 @@
+"use strict";
+
 class Blocks {
   constructor() {
+    this.position = { x: 4, y: 0 };
+    this.matrix = null;
+
     this.type = "IJLSOTZ";
     this.colors = [
       null,
@@ -75,23 +80,40 @@ class Blocks {
         break;
     }
   }
+  // Rotate Player
+  Rotate(direction) {
+    const position = this.position.x;
+    let offset = 1;
+    rotate(this.matrix, direction);
+    while (collision(board, block)) {
+      this.position.x += offset;
+      offset = -(offset + (offset > 0 ? 1 : -1));
+      if (offset > this.matrix[0].length) {
+        rotate(this.matrix, -direction);
+        this.position.x = position;
+        return;
+      }
+    }
+  }
+
   //Iteration 3 - Move block
 
   //Down Block
+
   Drop() {
-    player.position.y++;
-    if (collision(board, player)) {
-      player.position.y--;
-      joinBoard(board, player);
+    this.position.y++;
+    if (collision(board, block)) {
+      this.position.y--;
+      joinBoard(board, block);
     }
     dropCounter = 0;
   }
 
   Move(offset) {
     // Check is Left and Right
-    player.position.x += offset;
-    if (collision(board, player)) {
-      player.position.x -= offset;
+    this.position.x += offset;
+    if (collision(board, block)) {
+      this.position.x -= offset;
     }
   }
 }
