@@ -12,11 +12,12 @@ function drawGame() {
   context.fillStyle = "black";
   context.fillRect(0, 0, canvas.width, canvas.height);
 }
-
+// Player Start
 let player = {
   position: { x: 4, y: 0 },
   matrix: null
 };
+
 // Create grid-matrix
 function createMatrix(width, height) {
   const matrix = [];
@@ -30,13 +31,6 @@ function createMatrix(width, height) {
 
 // Scale Blocks
 context.scale(20, 20);
-
-//Create Block
-
-/*const block = [
-  [1, 1],
-  [1, 1]
-];*/
 
 // Iteration 5 - Create Blocks
 
@@ -96,7 +90,6 @@ function createBlocks(type) {
   }
 }
 
-//const block = 'IJLOSTZ'
 // Blocks Colors
 const colors = [
   null,
@@ -169,6 +162,14 @@ document.addEventListener("keydown", event => {
     case "ArrowDown":
       blockDrop();
       break;
+    // Rotate Left
+    case "KeyZ":
+      playerRotate(-1);
+      break;
+    // Rotate Rightz
+    case "KeyX":
+      playerRotate(1);
+      break;
   }
 });
 
@@ -198,9 +199,39 @@ function collision(board, player) {
   }
   return false;
 }
-
 // Iteration 6 - Controls-2 Rotate
 //1. Rotate Blocks
+
+// Rotate Matrix
+function rotate(matrix, direction) {
+  // We go through the matrix
+  for (let y = 0; y < matrix.length; y++) {
+    for (let x = 0; x < y; ++x) {
+      // For each position
+      [matrix[x][y], matrix[y][x]] =
+        // Invert the positions to rotate
+        [matrix[y][x], matrix[x][y]];
+    }
+  }
+  // According to one direction or another we do a reverse
+  direction > 0 ? matrix.forEach(row => row.reverse()) : matrix.reverse();
+}
+
+// Rotate Player
+function playerRotate(direction) {
+  const position = player.position.x;
+  let offset = 1;
+  rotate(player.matrix, direction);
+  while (collision(board, player)) {
+    player.position.x += offset;
+    offset = -(offset + (offset > 0 ? 1 : -1));
+    if (offset > player.matrix[0].length) {
+      rotate(player.matrix, -direction);
+      player.position.x = position;
+      return;
+    }
+  }
+}
 
 let dropCounter = 0;
 let dropInterval = 1000;
@@ -221,10 +252,9 @@ function update(time = 0) {
   requestAnimationFrame(update);
 }
 
-//player.matrix = createBlocks("O");
 //Iteration 5.2. Display Random Blocks
 const block = "IJLSOTZ";
-player.matrix = createBlocks(block[(block.length * Math.random()) | 0]);
 
+player.matrix = createBlocks(block[(block.length * Math.random()) | 0]);
 
 update();
