@@ -12,11 +12,6 @@ function drawGame() {
   context.fillStyle = "black";
   context.fillRect(0, 0, canvas.width, canvas.height);
 }
-// Player Start
-let player = {
-  position: { x: 4, y: 0 },
-  matrix: null
-};
 
 // Create grid-matrix
 function createMatrix(width, height) {
@@ -32,82 +27,12 @@ function createMatrix(width, height) {
 // Scale Blocks
 context.scale(20, 20);
 
-// Iteration 5 - Create Blocks
-
-//1. Create Blocks
-
-function createBlocks(type) {
-  switch (type) {
-    case "I":
-      return [
-        [0, 1, 0, 0],
-        [0, 1, 0, 0],
-        [0, 1, 0, 0],
-        [0, 1, 0, 0]
-      ];
-      break;
-    case "J":
-      return [
-        [0, 2, 0],
-        [0, 2, 0],
-        [2, 2, 0]
-      ];
-      break;
-    case "L":
-      return [
-        [0, 3, 0],
-        [0, 3, 0],
-        [0, 3, 3]
-      ];
-      break;
-    case "O":
-      return [
-        [4, 4],
-        [4, 4]
-      ];
-      break;
-    case "S":
-      return [
-        [0, 5, 5],
-        [5, 5, 0],
-        [0, 0, 0]
-      ];
-      break;
-    case "T":
-      return [
-        [0, 6, 0],
-        [6, 6, 6],
-        [0, 0, 0]
-      ];
-      break;
-    case "Z":
-      return [
-        [7, 7, 0],
-        [0, 7, 7],
-        [0, 0, 0]
-      ];
-      break;
-  }
-}
-
-// Blocks Colors
-const colors = [
-  null,
-  "cyan",
-  "blue",
-  "orange",
-  "yellow",
-  "green",
-  "purple",
-  "red"
-];
-
 // Draw Block
 function drawMatrix(matrix, offset) {
   matrix.forEach((row, y) => {
     row.forEach((value, x) => {
       if (value !== 0) {
-        context.fillStyle = colors[value];
+        context.fillStyle = block.colors[value];
         context.fillRect(x + offset.x, y + offset.y, 1, 1);
       }
     });
@@ -133,53 +58,33 @@ function joinBoard(board, player) {
   });
 }
 
-//Iteration 3 - Move block
-
-//Down Block
-function blockDrop() {
-  player.position.y++;
-  if (collision(board, player)) {
-    player.position.y--;
-    joinBoard(board, player);
-  }
-  dropCounter = 0;
-}
-
 //Iteration 4 - Controls-1
 
 //1. Left / Right
 document.addEventListener("keydown", event => {
   switch (event.code) {
     case "ArrowRight":
-      blockMove(1);
+      block.Move(1);
       break;
 
     case "ArrowLeft":
-      blockMove(-1);
+      block.Move(-1);
       break;
 
     // Down
     case "ArrowDown":
-      blockDrop();
+      block.Drop();
       break;
     // Rotate Left
     case "KeyZ":
-      playerRotate(-1);
+      player.Rotate(-1);
       break;
     // Rotate Rightz
     case "KeyX":
-      playerRotate(1);
+      player.Rotate(1);
       break;
   }
 });
-
-function blockMove(offset) {
-  // Check is Left and Right
-  player.position.x += offset;
-  if (collision(board, player)) {
-    player.position.x -= offset;
-  }
-}
 
 // check Collisions
 function collision(board, player) {
@@ -217,33 +122,18 @@ function rotate(matrix, direction) {
   direction > 0 ? matrix.forEach(row => row.reverse()) : matrix.reverse();
 }
 
-// Rotate Player
-function playerRotate(direction) {
-  const position = player.position.x;
-  let offset = 1;
-  rotate(player.matrix, direction);
-  while (collision(board, player)) {
-    player.position.x += offset;
-    offset = -(offset + (offset > 0 ? 1 : -1));
-    if (offset > player.matrix[0].length) {
-      rotate(player.matrix, -direction);
-      player.position.x = position;
-      return;
-    }
-  }
-}
-
 let dropCounter = 0;
 let dropInterval = 1000;
 let lastTime = 0;
 
 // update Game
+
 function update(time = 0) {
   const deltaTime = time - lastTime;
 
   dropCounter += deltaTime;
   if (dropCounter > dropInterval) {
-    blockDrop();
+    block.Drop();
   }
 
   lastTime = time;
@@ -253,8 +143,11 @@ function update(time = 0) {
 }
 
 //Iteration 5.2. Display Random Blocks
-const block = "IJLSOTZ";
 
-player.matrix = createBlocks(block[(block.length * Math.random()) | 0]);
+const block = new Blocks();
+const player = new Player();
+player.matrix = block.create(
+  block.type[(block.type.length * Math.random()) | 0]
+);
 
 update();
