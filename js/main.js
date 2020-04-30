@@ -1,10 +1,11 @@
 "use strict";
-// Create Context
-const canvas = document.getElementById("tetris");
-const context = canvas.getContext("2d");
 
-// Board 20X15
-const board = createMatrix(15, 20);
+const main = () => {
+
+  
+  playerReset();
+  update();
+};
 
 //Iteration 1 - Create Board
 // Draw Board
@@ -24,9 +25,6 @@ function createMatrix(width, height) {
 
 // Iteration 2 - Create Block
 
-// Scale Blocks
-context.scale(20, 20);
-
 // Draw Block
 function drawMatrix(matrix, offset) {
   matrix.forEach((row, y) => {
@@ -38,7 +36,7 @@ function drawMatrix(matrix, offset) {
     });
   });
 }
-
+// Draw Game
 function drawGame() {
   context.fillStyle = "#000";
   context.fillRect(0, 0, canvas.width, canvas.height);
@@ -60,7 +58,7 @@ function joinBoard(board, player) {
 //Iteration 4 - Controls-1
 
 //1. Left / Right
-document.addEventListener("keydown", event => {
+document.addEventListener("keydown", (event) => {
   switch (event.code) {
     case "ArrowRight":
       move(1);
@@ -118,7 +116,7 @@ function rotate(matrix, direction) {
     }
   }
   // According to one direction or another we do a reverse
-  direction > 0 ? matrix.forEach(row => row.reverse()) : matrix.reverse();
+  direction > 0 ? matrix.forEach((row) => row.reverse()) : matrix.reverse();
 }
 
 // Rotate Player
@@ -160,8 +158,9 @@ function move(offset) {
   }
 }
 
-// Iteration 7 - Fit Blocks
+// Iteration 7
 
+// Player Reset
 function playerReset() {
   player.matrix = block.create(
     block.type[(block.type.length * Math.random()) | 0]
@@ -187,9 +186,9 @@ function boardSweep() {
   }
 }
 
-let dropCounter = 0;
+/*let dropCounter = 0;
 let dropInterval = 1000;
-let lastTime = 0;
+let lastTime = 0;*/
 
 // update Game
 
@@ -203,9 +202,10 @@ function update(time = 0) {
   drawGame();
   requestAnimationFrame(update);
 }
-
+// Board 20X15
+const board = createMatrix(15, 20);
+// Initialize Instances
 const block = new Blocks();
 const player = new Player();
 
-playerReset();
-update();
+window.addEventListener("load", main);
