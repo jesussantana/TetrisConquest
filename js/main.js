@@ -215,4 +215,4 @@ const board = createMatrix(15, 20);
 const block = new Blocks();
 const player = new Player();
 
-window.addEventListener("load", main);
+//window.addEventListener("load", main);

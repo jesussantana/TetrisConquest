@@ -13,14 +13,16 @@
 </head>
 
 <body>
-  <div class="grid">
-
+  <div class="container">
+    
     <div class="right-column">
       <div>
-        <h1> TETRIS CONQUEST </h1>
+        <h3> TETRIS CONQUEST </h3>
         <p> Puntuación: <span id="score"> 0 </span> </p>
         <p> Lines: <span id="lines"> 0 </span></p>
       </div>
+      <button onclick="main()" class="btn btn-success btn-lg"> Start </button>
+    </br>
     </div>
     <canvas class="game-board" id="board" width="300" height="400"></canvas>
   </div>
