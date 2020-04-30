@@ -78,27 +78,25 @@ Start again more difficulty next planet
 
 ### Iteration 7 - Fit Blocks
 
-### Iteration 8 - Control Complete Lines
+### Iteration 8 - Control Complete rows
 
-### Iteration 9 - Complete lines elimination
-
-### Iteration 10 - Buttons
+### Iteration 9 - Buttons
 
     1. Start / Pause
 
-### Iteration 11 - Aumento velocidad cada x filas o nivel?
+### Iteration 10- Score 
 
-### Iteration 12 - Score 
+### Iteration 11 - Next block
 
-### Iteration 13 - Next block
+### Iteration 12 - Aumento velocidad cada x filas o nivel?
 
-### Iteration 14 - Se llena el tablero Explota
+### Iteration 13 - Se llena el tablero Explota
 
-### Iteration 15 WIN/ Next Level
+### Iteration 14 WIN/ Next Level
 
-### Iteration 16 Game over
+### Iteration 15 Game over
 
-### Iteration 17 Stilo Juego
+### Iteration 16 Stilo Juego
 
 #### Estilo Piezas 
 

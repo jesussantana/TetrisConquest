@@ -3,8 +3,9 @@ class Player {
     this.position = { x: 6, y: 0 };
     this.matrix = null;
   }
+}
   //Iteration 3 - Move block
-
+/*
   //Down Block
   Drop() {
     this.position.y++;
@@ -59,4 +60,4 @@ class Player {
       }
     }
   }
-}
+}*/

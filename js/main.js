@@ -57,7 +57,6 @@ function joinBoard(board, player) {
     });
   });
 }
-
 //Iteration 4 - Controls-1
 
 //1. Left / Right
@@ -148,6 +147,7 @@ function drop() {
     player.position.y--;
     joinBoard(board, player);
     playerReset();
+    boardSweep();
   }
   dropCounter = 0;
 }
@@ -160,7 +160,7 @@ function move(offset) {
   }
 }
 
-//Iteration 7 - Fit Blocks
+// Iteration 7 - Fit Blocks
 
 function playerReset() {
   player.matrix = block.create(
@@ -169,6 +169,22 @@ function playerReset() {
   player.position.y = 0;
   player.position.x =
     ((board[0].length / 2) | 0) - ((player.matrix[0].length / 2) | 0);
+}
+
+// Iteration 8 - Control Complete rows
+function boardSweep() {
+  let rowCount = 1;
+  outer: for (let y = board.length - 1; y > 0; --y) {
+    for (let x = 0; x < board[y].length; ++x) {
+      if (board[y][x] === 0) {
+        continue outer;
+      }
+    }
+    const row = board.splice(y, 1)[0].fill(0);
+    board.unshift(row);
+    ++y;
+    rowCount *= 2;
+  }
 }
 
 let dropCounter = 0;
@@ -189,12 +205,7 @@ function update(time = 0) {
 }
 
 const block = new Blocks();
-
-const player = {
-  position: { x: 0, y: 0 },
-  matrix: null,
-  score: 0
-};
+const player = new Player();
 
 playerReset();
 update();
