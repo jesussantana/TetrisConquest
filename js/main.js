@@ -1,8 +1,6 @@
 "use strict";
 
 const main = () => {
-
-  
   playerReset();
   update();
 };
@@ -63,11 +61,9 @@ document.addEventListener("keydown", (event) => {
     case "ArrowRight":
       move(1);
       break;
-
     case "ArrowLeft":
       move(-1);
       break;
-
     // Down
     case "ArrowDown":
       drop();
@@ -146,6 +142,7 @@ function drop() {
     joinBoard(board, player);
     playerReset();
     boardSweep();
+    updateScore();
   }
   dropCounter = 0;
 }
@@ -168,6 +165,13 @@ function playerReset() {
   player.position.y = 0;
   player.position.x =
     ((board[0].length / 2) | 0) - ((player.matrix[0].length / 2) | 0);
+  if (collision(board, player)) {
+    board.forEach((row) => row.fill(0));
+    // Score
+    player.score = 0;
+    player.lines = 0;
+    updateScore();
+  }
 }
 
 // Iteration 8 - Control Complete rows
@@ -182,16 +186,19 @@ function boardSweep() {
     const row = board.splice(y, 1)[0].fill(0);
     board.unshift(row);
     ++y;
+    // Score
+    player.score += rowCount * 10;
+    player.lines += rowCount;
     rowCount *= 2;
   }
 }
-
-/*let dropCounter = 0;
-let dropInterval = 1000;
-let lastTime = 0;*/
+//Iteration 9- Score
+function updateScore() {
+  document.getElementById("score").innerText = player.score;
+  document.getElementById("lines").innerText = player.lines;
+}
 
 // update Game
-
 function update(time = 0) {
   const deltaTime = time - lastTime;
   dropCounter += deltaTime;

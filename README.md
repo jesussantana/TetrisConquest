@@ -80,11 +80,11 @@ Start again more difficulty next planet
 
 ### Iteration 8 - Control Complete rows
 
-### Iteration 9 - Buttons
+### Iteration 9 - Score 
+
+### Iteration 10 - Buttons
 
     1. Start / Pause
-
-### Iteration 10- Score 
 
 ### Iteration 11 - Next block
 

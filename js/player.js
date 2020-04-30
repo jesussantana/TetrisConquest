@@ -1,10 +1,13 @@
+"use strict";
+
 class Player {
   constructor() {
     this.position = { x: 6, y: 0 };
     this.matrix = null;
+    (this.score = 0), (this.level = 0), (this.lines = 0);
   }
 }
-  //Iteration 3 - Move block
+//Iteration 3 - Move block
 /*
   //Down Block
   Drop() {
