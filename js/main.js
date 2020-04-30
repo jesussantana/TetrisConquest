@@ -3,8 +3,8 @@
 const canvas = document.getElementById("tetris");
 const context = canvas.getContext("2d");
 
-// Board 20X10
-const board = createMatrix(12, 20);
+// Board 20X15
+const board = createMatrix(15, 20);
 
 //Iteration 1 - Create Board
 // Draw Board
@@ -44,7 +44,7 @@ function drawGame() {
   context.fillRect(0, 0, canvas.width, canvas.height);
 
   drawMatrix(board, { x: 0, y: 0 });
-  drawMatrix(block.matrix, block.position);
+  drawMatrix(player.matrix, player.position);
 }
 
 // Join Player & BOard
@@ -64,24 +64,24 @@ function joinBoard(board, player) {
 document.addEventListener("keydown", event => {
   switch (event.code) {
     case "ArrowRight":
-      block.Move(1);
+      move(1);
       break;
 
     case "ArrowLeft":
-      block.Move(-1);
+      move(-1);
       break;
 
     // Down
     case "ArrowDown":
-      block.Drop();
+      drop();
       break;
     // Rotate Left
     case "KeyZ":
-      block.Rotate(-1);
+      playerRotate(-1);
       break;
     // Rotate Rightz
     case "KeyX":
-      block.Rotate(1);
+      playerRotate(1);
       break;
   }
 });
@@ -105,7 +105,7 @@ function collision(board, player) {
   return false;
 }
 // Iteration 6 - Controls-2 Rotate
-//1. Rotate Blocks
+//1. Rotate Blocksl
 
 // Rotate Matrix
 function rotate(matrix, direction) {
@@ -122,6 +122,55 @@ function rotate(matrix, direction) {
   direction > 0 ? matrix.forEach(row => row.reverse()) : matrix.reverse();
 }
 
+// Rotate Player
+function playerRotate(direction) {
+  const position = player.position.x;
+  let offset = 1;
+  rotate(player.matrix, direction);
+  while (collision(board, player)) {
+    player.position.x += offset;
+    offset = -(offset + (offset > 0 ? 1 : -1));
+    if (offset > player.matrix[0].length) {
+      rotate(player.matrix, -direction);
+      player.position.x = position;
+      return;
+    }
+  }
+}
+
+//Iteration 3 - Move block
+
+//Down Block
+
+function drop() {
+  player.position.y++;
+  if (collision(board, player)) {
+    player.position.y--;
+    joinBoard(board, player);
+    playerReset();
+  }
+  dropCounter = 0;
+}
+//Left/Right Block
+function move(offset) {
+  // Check is Left and Right
+  player.position.x += offset;
+  if (collision(board, player)) {
+    player.position.x -= offset;
+  }
+}
+
+//Iteration 7 - Fit Blocks
+
+function playerReset() {
+  player.matrix = block.create(
+    block.type[(block.type.length * Math.random()) | 0]
+  );
+  player.position.y = 0;
+  player.position.x =
+    ((board[0].length / 2) | 0) - ((player.matrix[0].length / 2) | 0);
+}
+
 let dropCounter = 0;
 let dropInterval = 1000;
 let lastTime = 0;
@@ -130,24 +179,22 @@ let lastTime = 0;
 
 function update(time = 0) {
   const deltaTime = time - lastTime;
-
   dropCounter += deltaTime;
   if (dropCounter > dropInterval) {
-    block.Drop();
+    drop();
   }
-
   lastTime = time;
-
   drawGame();
   requestAnimationFrame(update);
 }
 
-//Iteration 5.2. Display Random Blocks
-
 const block = new Blocks();
-//const player = new Player();
-block.matrix = block.create(
-  block.type[(block.type.length * Math.random()) | 0]
-);
 
+const player = {
+  position: { x: 0, y: 0 },
+  matrix: null,
+  score: 0
+};
+
+playerReset();
 update();
