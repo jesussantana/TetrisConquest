@@ -1,0 +1,51 @@
+/* press-start-2p-regular - latin */
+@font-face {
+    font-family: 'Press Start 2P';
+    font-style: norcursivemal;
+    font-weight: 300;
+    src: local('Press Start 2P Regular'), local('PressStart2P-Regular'),
+        url('../fonts/press-start-2p-v8-latin-regular.woff2') format('woff2'),
+        /* Chrome 26+, Opera 23+, Firefox 39+ */
+        url('../fonts/press-start-2p-v8-latin-regular.woff') format('woff');
+    /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
+}
+
+* {
+    font-family: 'Press Start 2P', cursive;
+}
+
+body,
+html {
+    height: 100%;
+    color: white;
+
+
+}
+
+container {
+    margin-top: 50px;
+    margin-left: 20px;
+}
+
+#board {
+    margin-left: 50px;
+}
+
+/* The hero image */
+.hero-image {
+    background-image: url("../images/spaceStart.gif");
+    width: 100%;
+    height: 100%;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    position: relative;
+}
+
+#audio1 {
+    display: none
+}
+
+.img {
+    image-rendering: pixelated;
+}

@@ -5,51 +5,49 @@
   <title>Tetris Conquest</title>
   <!-- Required meta tags -->
   <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=yes">
   <!-- Bootstrap CSS -->
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
     integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-  <link rel="stylesheet" href="css/style.css" type="text/css">
+  <link rel="stylesheet" href="dist/css/style.css" type="text/css">
 </head>
 
 <body>
   <div class="hero-image">
-    <div class="container pt-5">
+    <div class="container pt-5 text-center">
       <div class="row">
         <div class="col-md-4">
           <div>
-            <h3> TETRIS CONQUEST </h3>
-            <p> Puntuación: <span id="score"> 0 </span> </p>
+            <h3 clas="text-center"> TETRIS CONQUEST </h3>
+            </br>
+            <p> Points: <span id="score"> 0 </span> </p>
             <p> Lines: <span id="lines"> 0 </span></p>
-
           </div>
-        </br></br></br></br></br></br>
+          </br></br></br></br></br></br></br>
           <div>
-            <h4> NEXT </h4>
+            <h4> NEXT </h4></br>
             <canvas class="" id="next" width="120" height="120"></canvas>
           </div>
-        </br></br></br></br></br></br>
+          </br></br></br></br></br></br></br></br>
           <div>
-          </br>
-            <button onclick="main()" class="btn btn-success btn-lg"> Start </button>
-          </br>
+            </br>
+            <button onclick="main()" class="btn btn-success btn-lg"> START </button>
+            </br>
           </div>
-          
         </div>
-
         <div class="col-md-4"><canvas class="game-board" id="board" width="600" height="800"></canvas></div>
-
       </div>
     </div>
+    <audio id="audio1" controls loop>
+      <source type="audio/wav" src="dist/sound/Demoscene Time Machine - Hyperdrive.mp3">
+    </audio>
   </div>
 
   <!-- Optional JavaScript -->
-  <script src="js/starts.js"></script>
-  <script src="js/constants.js"></script>
-  <script src="js/player.js"></script>
-  <script src="js/blocks.js"></script>
-  <script src="js/main.js"></script>
+  <script src="dist/js/constants.js"></script>
+  <script src="dist/js/player.js"></script>
+  <script src="dist/js/blocks.js"></script>
+  <script src="dist/js/main.js"></script>
   <!-- jQuery first, then Popper.js, then Bootstrap JS -->
   <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
     integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
