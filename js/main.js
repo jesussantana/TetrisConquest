@@ -35,15 +35,18 @@ function drawMatrix(matrix, offset) {
 // Draw Game
 function drawGame() {
   // Draw Board
-  context.fillStyle = "#000";
+  context.fillStyle = "black";
   context.fillRect(0, 0, canvas.width, canvas.height);
   drawMatrix(board, { x: 0, y: 0 });
   drawMatrix(player.matrix, player.position);
   //Iteration 11 - Next block
   contextNext.fillStyle = "#000";
   contextNext.fillRect(0, 0, canvas.width, canvas.height);
-  drawMatrix(boardNext, { x: 0, y: 0 });
+  drawMatrix(boardNext, { x: 0, y: 0 })
   drawMatrix(nextPlayer.matrix, 0);
+  
+  
+
 }
 
 // Join Player & BOard
@@ -224,7 +227,7 @@ function update(time = 0) {
 }
 // Board 20X15
 const board = createMatrix(15, 20);
-const boardNext = createMatrix(2, 2);
+const boardNext= createMatrix(2, 2);
 // Initialize Instances
 const block = new Blocks();
 const nextPlayer = new Player();

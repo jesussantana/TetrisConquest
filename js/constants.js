@@ -5,8 +5,8 @@ const context = canvas.getContext("2d");
 const canvasNext = document.getElementById("next");
 const contextNext = canvasNext.getContext("2d");
 const columns = 15;
-const rows = 20;
-const blockSize = 20;
+const rows = 40;
+const blockSize = 40;
 // Scale Blocks
 context.scale(blockSize, blockSize);
 contextNext.scale(blockSize, blockSize);
