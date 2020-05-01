@@ -1,5 +1,4 @@
 /* press-start-2p-regular - latin */
-/* press-start-2p-regular - latin */
 @font-face {
     font-family: 'Press Start 2P';
     font-style: normal;
@@ -13,6 +12,11 @@
 
 * {
     font-family: 'Press Start 2P', cursive;
+}
+
+body,
+html {
+    height: 100%;
 }
 
 .grid {
@@ -35,4 +39,14 @@
     font-size: 16px;
     padding: 15px 30px;
     cursor: pointer;
-  }
+}
+
+body {
+    margin: 0;
+    padding: 1em;
+    background-image: url(../images/Robert.png);
+    background-color: #5f27cd;
+    background-size: inherit;
+    background-repeat: no-repeat;
+
+}

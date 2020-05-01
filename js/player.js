@@ -4,7 +4,9 @@ class Player {
   constructor() {
     this.position = { x: 6, y: 0 };
     this.matrix = null;
-    (this.score = 0), (this.level = 0), (this.lines = 0);
+    this.score = 0;
+    this.level = 0;
+    this.lines = 0;
   }
 }
 //Iteration 3 - Move block
@@ -20,7 +22,6 @@ class Player {
     }
     dropCounter = 0;
   }
-
   Move(offset) {
     // Check is Left and Right
     player.position.x += offset;
@@ -28,7 +29,6 @@ class Player {
       player.position.x -= offset;
     }
   }
-
   // Check Collisions
   Collision(board, player) {
     const matriz = player.matrix;
@@ -47,7 +47,6 @@ class Player {
     }
     return false;
   }
-
   // Rotate Block in Board
   Rotate(direction) {
     const position = player.position.x;

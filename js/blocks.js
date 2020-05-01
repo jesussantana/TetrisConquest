@@ -5,17 +5,57 @@ class Blocks {
     //this.position = { x: 4, y: 0 };
     //this.matrix = null;
 
-    this.type = "IJLSOTZ";
+    this.type = "IJLSOTZX";
     this.colors = [
       null,
-      "cyan",
-      "blue",
-      "orange",
-      "yellow",
-      "green",
-      "purple",
-      "red",
+      "#33FFEE",
+      "#33A9FF",
+      "#FFBF00",
+      "#FFFE33",
+      "#62FF33",
+      "#5E33FF",
+      "#FF334A",
+      "#D533FF",
     ];
+
+    this.pieces = [
+      [
+        [0, 1, 0, 0],
+        [0, 1, 0, 0],
+        [0, 1, 0, 0],
+        [0, 1, 0, 0],
+      ],
+      [
+        [0, 2, 0],
+        [0, 2, 0],
+        [2, 2, 0],
+      ],
+      [
+        [0, 3, 0],
+        [0, 3, 0],
+        [0, 3, 3],
+      ],
+      [
+        [4, 4],
+        [4, 4],
+      ],
+      [
+        [0, 5, 5],
+        [5, 5, 0],
+        [0, 0, 0],
+      ],
+      [
+        [0, 6, 0],
+        [6, 6, 6],
+        [0, 0, 0],
+      ],
+      [
+        [7, 7, 0],
+        [0, 7, 7],
+        [0, 0, 0],
+      ],
+    ];
+
     this.I = [
       [0, 1, 0, 0],
       [0, 1, 0, 0],
@@ -51,6 +91,11 @@ class Blocks {
       [0, 7, 7],
       [0, 0, 0],
     ];
+    this.X = [
+      [0, 8, 0],
+      [8, 8, 8],
+      [0, 8, 0],
+    ];
   }
 
   // Iteration 5 - Create Blocks
@@ -77,6 +122,9 @@ class Blocks {
         break;
       case "Z":
         return this.Z;
+        break;
+      case "X":
+        return this.X;
         break;
     }
   }

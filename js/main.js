@@ -6,11 +6,6 @@ const main = () => {
 };
 
 //Iteration 1 - Create Board
-// Draw Board
-function drawGame() {
-  context.fillStyle = "black";
-  context.fillRect(0, 0, canvas.width, canvas.height);
-}
 
 // Create grid-matrix
 function createMatrix(width, height) {
@@ -30,17 +25,25 @@ function drawMatrix(matrix, offset) {
       if (value !== 0) {
         context.fillStyle = block.colors[value];
         context.fillRect(x + offset.x, y + offset.y, 1, 1);
+        //Next block
+        contextNext.fillStyle = block.colors[value];
+        contextNext.fillRect(x, y, 1, 1);
       }
     });
   });
 }
 // Draw Game
 function drawGame() {
+  // Draw Board
   context.fillStyle = "#000";
   context.fillRect(0, 0, canvas.width, canvas.height);
-
   drawMatrix(board, { x: 0, y: 0 });
   drawMatrix(player.matrix, player.position);
+  //Iteration 11 - Next block
+  contextNext.fillStyle = "#000";
+  contextNext.fillRect(0, 0, canvas.width, canvas.height);
+  drawMatrix(boardNext, { x: 0, y: 0 });
+  drawMatrix(nextPlayer.matrix, 0);
 }
 
 // Join Player & BOard
@@ -140,9 +143,11 @@ function drop() {
   if (collision(board, player)) {
     player.position.y--;
     joinBoard(board, player);
+
     playerReset();
     boardSweep();
     updateScore();
+    update(+10);
   }
   dropCounter = 0;
 }
@@ -159,7 +164,15 @@ function move(offset) {
 
 // Player Reset
 function playerReset() {
-  player.matrix = block.create(
+  if (nextPlayer.matrix === null) {
+    player.matrix = block.create(
+      block.type[(block.type.length * Math.random()) | 0]
+    );
+  } else {
+    player.matrix = nextPlayer.matrix;
+  }
+  //Next block
+  nextPlayer.matrix = block.create(
     block.type[(block.type.length * Math.random()) | 0]
   );
   player.position.y = 0;
@@ -211,8 +224,10 @@ function update(time = 0) {
 }
 // Board 20X15
 const board = createMatrix(15, 20);
+const boardNext = createMatrix(2, 2);
 // Initialize Instances
 const block = new Blocks();
+const nextPlayer = new Player();
 const player = new Player();
 
 //window.addEventListener("load", main);
