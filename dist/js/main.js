@@ -171,7 +171,8 @@ function drawNextLevel() {
 
   player.level++;
 }
-// iteration 14 - Game Overl
+
+// Iteration 14 - Game Over
 function drawGameOver() {
   cancelAnimationFrame(animation);
   context.fillStyle = "../images/gameOver.jpg";
