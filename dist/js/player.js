@@ -7,33 +7,35 @@ class Player {
     this.score = 0;
     this.lines = 0;
     this.level = 0;
+    this.dropFast = 1000;
+    this.dropSlow = 50;
   }
 
   //Iteration 3 - Move block
 
   //Down Block
-  Drop() {
+  drop() {
     this.position.y++;
-    if (this.Collision(board, player)) {
+    if (this.collision(board, player)) {
       this.position.y--;
       joinBoard(board, player);
       playerReset();
       boardSweep();
       updateScore();
-      update(+10);
+      update();
     }
     dropCounter = 0;
   }
   //Left/Right Block
-  Move(offset) {
+  move(offset) {
     // Check is Left and Right
     this.position.x += offset;
-    if (this.Collision(board, player)) {
+    if (this.collision(board, player)) {
       this.position.x -= offset;
     }
   }
   // Check Collisions
-  Collision(board, player) {
+  collision(board, player) {
     const matriz = player.matrix;
     const offset = player.position;
     //iterate Block
@@ -51,11 +53,11 @@ class Player {
     return false;
   }
   // Rotate Block in Board
-  Rotate(direction) {
+  rotate(direction) {
     const position = this.position.x;
     let offset = 1;
     rotate(this.matrix, direction);
-    while (this.Collision(board, player)) {
+    while (this.collision(board, player)) {
       this.position.x += offset;
       offset = -(offset + (offset > 0 ? 1 : -1));
       if (offset > this.matrix[0].length) {

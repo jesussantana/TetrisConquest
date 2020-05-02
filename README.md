@@ -88,19 +88,23 @@ Start again more difficulty next planet
 
 ### Iteration 11 - Next block
 
-### Iteration 12 - Aumento velocidad cada x filas o nivel?
+### Iteration 12 - Styles
 
-### Iteration 13 - Se llena el tablero Explota
+### Iteration 13 WIN
 
-### Iteration 14 WIN/ Next Level
+### Iteration 14 Game over
 
-### Iteration 15 Game over
+### Iteration 15 - Aumento velocidad cada x filas o nivel?
+
+### Iteration 16 - Se llena el tablero Explota
 
 ### Iteration 16 Stilo Juego
 
 #### Estilo Piezas 
 
 #### Estilo escenario 
+
+#### Next Level
 
 1. Decoracion Tablero / Fondo tablero / Movimiento
 2. Fondo pagina

@@ -18,21 +18,33 @@
       <div class="row">
         <div class="col-md-4">
           <div>
-            <h3 clas="text-center"> TETRIS CONQUEST </h3>
+            <h3> TETRIS CONQUEST </h3>
             </br>
             <p> Points: <span id="score"> 0 </span> </p>
             <p> Lines: <span id="lines"> 0 </span></p>
+            <p> Level: <span id="level"> 0 </span></p>
           </div>
-          </br></br></br></br></br></br></br>
+          <hr />
+          <hr />
+          <hr />
+          <hr />
+          <hr />
           <div>
             <h4> NEXT </h4></br>
             <canvas class="" id="next" width="120" height="120"></canvas>
           </div>
-          </br></br></br></br></br></br></br></br>
+          <hr />
+          <hr />
+          <hr />
+          <hr />
+          <hr />
           <div>
-            </br>
-            <button onclick="main()" class="btn btn-success btn-lg"> START </button>
-            </br>
+            <hr />
+            <button onclick="generateMusic()" class="btn btn-outline-warning btn-lg"> MUSIC </button>
+            <hr />
+            <hr />
+            <button onclick="main()" class="btn btn-outline-success btn-lg"> START </button>
+            <hr />
           </div>
         </div>
         <div class="col-md-4"><canvas class="game-board" id="board" width="600" height="800"></canvas></div>
@@ -45,8 +57,11 @@
 
   <!-- Optional JavaScript -->
   <script src="dist/js/constants.js"></script>
-  <script src="dist/js/player.js"></script>
   <script src="dist/js/blocks.js"></script>
+  <script src="dist/js/game.js"></script>
+  <script src="dist/js/player.js"></script>
+  <script src="dist/js/board.js"></script>
+
   <script src="dist/js/main.js"></script>
   <!-- jQuery first, then Popper.js, then Bootstrap JS -->
   <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"

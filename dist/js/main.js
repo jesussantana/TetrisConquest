@@ -36,7 +36,7 @@ function drawMatrix(matrix, offset) {
 // Draw Game
 function drawGame() {
   // Draw Board
-  context.fillStyle = "black";
+  context.fillStyle = "#000";
   context.fillRect(0, 0, canvas.width, canvas.height);
   drawMatrix(board, { x: 0, y: 0 });
   drawMatrix(player.matrix, player.position);
@@ -63,22 +63,22 @@ function joinBoard(board, player) {
 document.addEventListener("keydown", (event) => {
   switch (event.code) {
     case "ArrowRight":
-      player.Move(1);
+      player.move(1);
       break;
     case "ArrowLeft":
-      player.Move(-1);
+      player.move(-1);
       break;
     // Down
     case "ArrowDown":
-      player.Drop();
+      player.drop();
       break;
     // Rotate Left
     case "KeyZ":
-      player.Rotate(-1);
+      player.rotate(-1);
       break;
     // Rotate Rightz
     case "KeyX":
-      playerRotate(1);
+      player.rotate(1);
       break;
   }
 });
@@ -119,12 +119,15 @@ function playerReset() {
   player.position.y = 0;
   player.position.x =
     ((board[0].length / 2) | 0) - ((player.matrix[0].length / 2) | 0);
-  if (player.Collision(board, player)) {
+  if (player.collision(board, player)) {
     board.forEach((row) => row.fill(0));
     // Score
     player.score = 0;
     player.lines = 0;
+    player.level = 0;
     updateScore();
+
+    drawGameOver();
   }
 }
 
@@ -143,6 +146,12 @@ function boardSweep() {
     // Score
     player.score += rowCount * 10;
     player.lines += rowCount;
+    cancelAnimationFrame(update);
+    if (player.lines >= 1) {
+      drawNextLevel();
+    } else if ((player.lines = 1)) {
+      dropInterval -= 200;
+    }
     rowCount *= 2;
   }
 }
@@ -150,6 +159,24 @@ function boardSweep() {
 function updateScore() {
   document.getElementById("score").innerText = player.score;
   document.getElementById("lines").innerText = player.lines;
+  document.getElementById("level").innerText = player.level;
+}
+
+// Iteration 13 - Win --- Next Level
+function drawNextLevel() {
+  cancelAnimationFrame(animation);
+  context.fillStyle = "../images/nextLevel.jpg";
+  context.fillRect(0, 0, canvas.width, canvas.height);
+  //dropInterval += 100000;
+
+  player.level++;
+}
+// iteration 14 - Game Overl
+function drawGameOver() {
+  cancelAnimationFrame(animation);
+  context.fillStyle = "../images/gameOver.jpg";
+  context.fillRect(0, 0, canvas.width, canvas.height);
+  //dropInterval += 100000;
 }
 
 // Update Game
@@ -157,7 +184,7 @@ function update(time = 0) {
   const deltaTime = time - lastTime;
   dropCounter += deltaTime;
   if (dropCounter > dropInterval) {
-    player.Drop();
+    player.drop();
   }
   lastTime = time;
   drawGame();
