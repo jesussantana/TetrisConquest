@@ -191,6 +191,12 @@ function update(time = 0) {
   drawGame();
   requestAnimationFrame(update);
 }
+
+// Music ON/OFF
+function generateMusic() {
+  return audio.paused ? audio.play() : audio.pause();
+}
+
 // Board 20X15
 const board = createMatrix(15, 20);
 const boardNext = createMatrix(2, 2);

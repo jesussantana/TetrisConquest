@@ -17,27 +17,6 @@ image.src = "../images/space.jpg";*/
 const audio = document.getElementById("audio1");
 audio.volume = 0.5;
 
-const generateMusic = () => {
-  audio.pause ? audio.play() : audio.pause();
-};
-
-/*};
-/*const generateMusic = document.getElementById("audio1");
-var isPlaying = false;
-function togglePlay() {
-  if (isPlaying) {
-    myAudio.pause()
-  } else {
-    myAudio.play();
-  }
-};
-myAudio.onplaying = function() {
-  isPlaying = true;
-};
-myAudio.onpause = function() {
-  isPlaying = false;
-};*/
-
 let requestId = 0;
 let dropCounter = 0;
 let dropInterval = 1000;

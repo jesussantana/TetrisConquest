@@ -19,12 +19,12 @@ class Board {
   }
 
   collision(player) {
-    const [m, o] = [player.matrix, player.position];
-    for (let y = 0; y < m.length; ++y) {
-      for (let x = 0; x < m[y].length; ++x) {
+    const [matriz, offset] = [player.matrix, player.position];
+    for (let y = 0; y < matriz.length; ++y) {
+      for (let x = 0; x < matriz[y].length; ++x) {
         if (
-          m[y][x] !== 0 &&
-          (this.matrix[y + o.y] && this.matrix[y + o.y][x + o.x]) !== 0
+          matriz[y][x] !== 0 &&
+          (matriz[y + o.y] && matriz[y + offset.y][x + offset.x]) !== 0
         ) {
           return true;
         }

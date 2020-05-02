@@ -92,19 +92,19 @@ Start again more difficulty next planet
 
 ### Iteration 13 WIN
 
-### Iteration 14 Game over
+### Iteration 14 Button Music On/off
 
-### Iteration 15 - Aumento velocidad cada x filas o nivel?
+### Iteration 15 Game over
 
-### Iteration 16 - Se llena el tablero Explota
+### Iteration 16 - Aumento velocidad cada x filas o nivel?
 
-### Iteration 16 Stilo Juego
+### Iteration 17 - Se llena el tablero Explota
 
-#### Estilo Piezas 
+### Iteration 18 Style Game
 
-#### Estilo escenario 
+#### Iteration 19 Style Blocks 
 
-#### Next Level
+#### Iteration 20 Style Board 
 
 1. Decoracion Tablero / Fondo tablero / Movimiento
 2. Fondo pagina
@@ -112,13 +112,13 @@ Start again more difficulty next planet
 4. Next
 5. Pausa / Continua
 
-### Iteration 15 Opcciones
+### Iteration 21 Opcciones
 
 1. Tablero / Tamaño
 2. Obstaculos / Dificultad
 
-### Iteration 16 Presentacion  
+### Iteration 22 Presentacion  
 
-### Iteration 17 Musica   
+### Iteration 23 Musica 2  
 
-### Iteration 18 Next Level
+### Iteration 24 Next Level
