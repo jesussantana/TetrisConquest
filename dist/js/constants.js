@@ -14,7 +14,7 @@ context.scale(blockSize, blockSize);
 contextNext.scale(blockSize, blockSize);
 /*const image = new Image();
 image.src = "../images/space.jpg";*/
-const audio = document.getElementById("audio1");
+const audio = document.getElementById("audio");
 audio.volume = 0.5;
 
 let requestId = 0;

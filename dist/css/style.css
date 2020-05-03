@@ -12,13 +12,15 @@
 
 * {
     font-family: 'Press Start 2P', cursive;
+    text-shadow: 4px 4px 8px black;
 }
 
 body,
 html {
     height: 100%;
     color: #E26521;
-    cursor: grab #E26521;
+
+    
 }
 
 p {
@@ -29,17 +31,32 @@ p {
     margin-top: 50px;
     margin-left: 20px;
 }*/
+#myVideo {
+    position: fixed;
+    right: 0;
+    bottom: 0;
+    min-width: 100%;
+    min-height: 100%;
+    -webkit-transform: scaleX(-5);
+    transform: scaleX(-5);
+    image-rendering: pixelated;
+    filter: saturate(180%);
+    filter: invert(100%);
+}
 
 /* The hero image */
+/*
 .hero-image {
-    background-image: url("../images/interestelar.gif");
+    
+
+    background-image: url("../images/space.webp");
     width: 100%;
     height: 100%;
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
     position: relative;
-}
+}*/
 
 #board {
     margin-left: 50px;
@@ -51,17 +68,26 @@ p {
     background-repeat: no-repeat;
     background-size: cover;
     position: relative;
+    box-shadow: 4px 4px 8px black;
 
 }
 
 #next {
-
+    
     border: 5px solid #F1AC29;
     border-radius: 10px;
+    box-shadow: 4px 4px 8px orange;
+}
+h4 {
+    text-shadow: 4px 4px 8px #F1AC29;
 }
 
-#audio1 {
+#audio {
     display: none
+}
+
+button {
+    box-shadow: 4px 4px 8px black;
 }
 
 .img {

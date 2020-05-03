@@ -1,5 +1,9 @@
 "use strict";
 
+function init() {
+  return !main.paused ? main() : drawNextLevel();
+}
+
 const main = () => {
   playerReset();
   audio.play();
@@ -25,14 +29,67 @@ function drawMatrix(matrix, offset) {
     row.forEach((value, x) => {
       if (value !== 0) {
         context.fillStyle = block.colors[value];
-        context.fillRect(x + offset.x, y + offset.y, 1, 1);
+        //context.roundRect(x + offset.x, y + offset.y, 1, 1,50);
+        context.roundRect(x + offset.x, y + offset.y, 0.5, 0.5, {upperLeft:0.01,upperRight:0.01}, true, true);
+
         //Next block
         contextNext.fillStyle = block.colors[value];
-        contextNext.fillRect(x, y, 1, 1);
+        contextNext.fillRect(x, y, 0.5, 0.5, {upperLeft:0.1,upperRight:0.1}, true, true);
+        
       }
     });
   });
 }
+// Redondear rectangulos
+CanvasRenderingContext2D.prototype.roundRect = function (
+  x,
+  y,
+  width,
+  height,
+  radius,
+  fill,
+  stroke
+) {
+  var cornerRadius = {
+    upperLeft: 0,
+    upperRight: 0,
+    lowerLeft: 0,
+    lowerRight: 0,
+  };
+  if (typeof stroke == "undefined") {
+    stroke = true;
+  }
+  if (typeof radius === "object") {
+    for (var side in radius) {
+      cornerRadius[side] = radius[side];
+    }
+  }
+  this.beginPath();
+  this.moveTo(x + cornerRadius.upperLeft, y);
+  this.lineTo(x + width - cornerRadius.upperRight, y);
+  this.quadraticCurveTo(x + width, y, x + width, y + cornerRadius.upperRight);
+  this.lineTo(x + width, y + height - cornerRadius.lowerRight);
+  this.quadraticCurveTo(
+    x + width,
+    y + height,
+    x + width - cornerRadius.lowerRight,
+    y + height
+  );
+  this.lineTo(x + cornerRadius.lowerLeft, y + height);
+  this.quadraticCurveTo(x, y + height, x, y + height - cornerRadius.lowerLeft);
+  this.lineTo(x, y + cornerRadius.upperLeft);
+  this.quadraticCurveTo(x, y, x + cornerRadius.upperLeft, y);
+  this.closePath();
+  if (stroke) {
+    this.stroke();
+  }
+  if (fill) {
+    this.fill();
+  }
+};
+
+//www.iteramos.com/pregunta/18203/como-dibujar-un-rectangulo-redondeado-en-html-canvas
+
 // Draw Game
 function drawGame() {
   // Draw Board
@@ -124,7 +181,7 @@ function playerReset() {
     // Score
     player.score = 0;
     player.lines = 0;
-    player.level = 0;
+
     updateScore();
 
     drawGameOver();
@@ -192,7 +249,7 @@ function update(time = 0) {
   requestAnimationFrame(update);
 }
 
-// Music ON/OFF
+// Iteration 14 Music ON/OFF
 function generateMusic() {
   return audio.paused ? audio.play() : audio.pause();
 }
