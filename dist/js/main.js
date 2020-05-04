@@ -1,11 +1,12 @@
 "use strict";
 
 function init() {
-  return !main.paused ? main() : drawNextLevel();
+  //main() : drawNextLevel();
+  main();
 }
 
 const main = () => {
-  playerReset();
+  player.reset();
   audio.play();
   update();
 };
@@ -29,13 +30,13 @@ function drawMatrix(matrix, offset) {
     row.forEach((value, x) => {
       if (value !== 0) {
         context.fillStyle = block.colors[value];
-        //context.roundRect(x + offset.x, y + offset.y, 1, 1,50);
-        context.roundRect(x + offset.x, y + offset.y, 0.5, 0.5, {upperLeft:0.01,upperRight:0.01}, true, true);
+        context.fillRect(x + offset.x, y + offset.y, 1, 1);
+        //context.roundRect(x + offset.x, y + offset.y, 0.5, 0.5, {upperLeft:0.01,upperRight:0.01}, true, true);
 
         //Next block
         contextNext.fillStyle = block.colors[value];
-        contextNext.fillRect(x, y, 0.5, 0.5, {upperLeft:0.1,upperRight:0.1}, true, true);
-        
+        contextNext.fillRect(x, y, 1, 1);
+        //contextNext.roundRect(x, y, 0.5, 0.5, {upperLeft:0.1,upperRight:0.1}, true, true);
       }
     });
   });
@@ -183,8 +184,6 @@ function playerReset() {
     player.lines = 0;
 
     updateScore();
-
-    drawGameOver();
   }
 }
 
@@ -203,7 +202,7 @@ function boardSweep() {
     // Score
     player.score += rowCount * 10;
     player.lines += rowCount;
-    cancelAnimationFrame(update);
+    
     if (player.lines >= 1) {
       drawNextLevel();
     } else if ((player.lines = 1)) {
@@ -221,8 +220,12 @@ function updateScore() {
 
 // Iteration 13 - Win --- Next Level
 function drawNextLevel() {
-  cancelAnimationFrame(animation);
-  context.fillStyle = "../images/nextLevel.jpg";
+  for (let i = 0; i < 20; i++) {
+    cancelAnimationFrame(update);
+  }
+  board = createMatrix(15, 20);
+  //dropInterval += 1000000;
+  context.fillStyle = "../images/nave.jpg";
   context.fillRect(0, 0, canvas.width, canvas.height);
   //dropInterval += 100000;
 
@@ -231,23 +234,54 @@ function drawNextLevel() {
 
 // Iteration 14 - Game Over
 function drawGameOver() {
-  cancelAnimationFrame(animation);
+  console.log("drawGameOver");
+  for (let i = 0; i < 20; i++) {
+    cancelAnimationFrame(update);
+  }
+  //cancelAnimationFrame(update);
+  //dropInterval += 1000000;
   context.fillStyle = "../images/gameOver.jpg";
   context.fillRect(0, 0, canvas.width, canvas.height);
   //dropInterval += 100000;
 }
 
 // Update Game
-function update(time = 0) {
-  const deltaTime = time - lastTime;
-  dropCounter += deltaTime;
-  if (dropCounter > dropInterval) {
-    player.drop();
+let update = (time = 0) => {
+  if (player.lines >= 3) {
+    drawGameOver();
   }
-  lastTime = time;
-  drawGame();
-  requestAnimationFrame(update);
+  if (player.lines < 1) {
+    const deltaTime = time - lastTime;
+    dropCounter += deltaTime;
+    if (dropCounter > dropInterval) {
+      player.drop();
+    }
+    lastTime = time;
+    drawGame();
+    requestAnimationFrame(update);
+  } else if (player.lines >= 2) {
+    drawNextLevel();
+  }
+};
+/*function update(time = 0) {
+  if (player.lines>=2){
+    drawGameOver();
 }
+  if (player.lines<1){
+    const deltaTime = time - lastTime;
+    dropCounter += deltaTime;
+    if (dropCounter > dropInterval) {
+      player.drop();
+    }
+    lastTime = time;
+    drawGame();
+    requestAnimationFrame(update);
+  }else {
+    drawNextLevel();
+  }
+  
+  
+}*/
 
 // Iteration 14 Music ON/OFF
 function generateMusic() {
@@ -255,7 +289,7 @@ function generateMusic() {
 }
 
 // Board 20X15
-const board = createMatrix(15, 20);
+let board = createMatrix(15, 20);
 const boardNext = createMatrix(2, 2);
 // Initialize Instances
 const block = new Blocks();

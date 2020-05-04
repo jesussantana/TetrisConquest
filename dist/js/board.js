@@ -3,7 +3,7 @@ class Board {
     // Create grid-matrix
     const matrix = [];
     while (height--) {
-      matrix.push(new Array(w).fill(0));
+      matrix.push(new Array(width).fill(0));
     }
     this.matrix = matrix;
   }
@@ -18,7 +18,7 @@ class Board {
     });
   }
 
-  collision(player) {
+  /*collision(player) {
     const [matriz, offset] = [player.matrix, player.position];
     for (let y = 0; y < matriz.length; ++y) {
       for (let x = 0; x < matriz[y].length; ++x) {
@@ -31,26 +31,35 @@ class Board {
       }
     }
     return false;
-  }
+  }*/
   // Iteration 8 - Control Complete rows
   sweepBoard() {
     let rowCount = 1;
-    let score = 0;
-    outer: for (let y = this.matrix.length - 1; y > 0; --y) {
-      for (let x = 0; x < this.matrix[y].length; ++x) {
-        if (this.matrix[y][x] === 0) {
+    outer: for (let y = board.length - 1; y > 0; --y) {
+      for (let x = 0; x < board[y].length; ++x) {
+        if (board[y][x] === 0) {
           continue outer;
         }
       }
-      const row = this.matrix.splice(y, 1)[0].fill(0);
-      this.matrix.unshift(row);
+      const row = board.splice(y, 1)[0].fill(0);
+      board.unshift(row);
       ++y;
       // Score
-      score += rowCount * 10;
+      player.score += rowCount * 10;
+      player.lines += rowCount;
+      cancelAnimationFrame(update);
+      if (player.lines >= 1) {
+        drawNextLevel();
+      } else if ((player.lines = 1)) {
+        dropInterval -= 200;
+      }
       rowCount *= 2;
     }
-    return score;
   }
+
+  // Iteration 8 - Control Complete rows
+
+
 
   clear() {
     this.matrix.forEach((row) => row.fill(0));

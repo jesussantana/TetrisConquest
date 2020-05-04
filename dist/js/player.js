@@ -67,4 +67,31 @@ class Player {
       }
     }
   }
+
+  reset() {
+    if (nextPlayer.matrix === null) {
+      player.matrix = block.create(
+        block.type[(block.type.length * Math.random()) | 0]
+      );
+    } else {
+      player.matrix = nextPlayer.matrix;
+    }
+    //Next block
+    nextPlayer.matrix = block.create(
+      block.type[(block.type.length * Math.random()) | 0]
+    );
+    player.position.y = 0;
+    player.position.x =
+      ((board[0].length / 2) | 0) - ((player.matrix[0].length / 2) | 0);
+    if (player.collision(board, player)) {
+      board.forEach((row) => row.fill(0));
+      // Score
+      player.score = 0;
+      player.lines = 0;
+
+      updateScore();
+
+      drawGameOver();
+    }
+  }
 }

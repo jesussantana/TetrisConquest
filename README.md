@@ -98,7 +98,7 @@ Start again more difficulty next planet
 
 ### Iteration 16 - Aumento velocidad cada x filas o nivel?
 
-### Iteration 17 - Se llena el tablero Explota
+### Iteration 17 - Se llena el tablero ExplotaZ
 
 ### Iteration 18 Style Game
 
