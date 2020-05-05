@@ -74,23 +74,9 @@ p {
     box-shadow: 4px 4px 8px black;
 }
 
-h4 i{
+h4 i {
     text-shadow: 4px 4px 8px black;
 }
-
-#audio {
-    display: none
-}
-
-#audio1{
-    display: none
-}
-#audio2{
-    display: none
-}
-
-
-
 
 button {
     box-shadow: 4px 4px 8px black;

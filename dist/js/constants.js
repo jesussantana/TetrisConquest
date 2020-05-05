@@ -39,7 +39,7 @@ const audio1 = document.getElementById("audio1");
 audio1.volume = 0.5;
 
 const audio2 = document.getElementById("audio2");
-audio2.volume = 0.8;
+audio2.volume = 0.5;
 
 let requestId = 0;
 let dropCounter = 0;
