@@ -82,6 +82,18 @@ button {
     box-shadow: 4px 4px 8px black;
 }
 
+#audio {
+    display: none
+}
+
+#audio1 {
+    display: none
+}
+
+#audio2 {
+    display: none
+}
+
 .img {
     image-rendering: pixelated;
 }

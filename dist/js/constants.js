@@ -36,10 +36,10 @@ const audio = document.getElementById("audio");
 audio.volume = 0.2;
 
 const audio1 = document.getElementById("audio1");
-audio1.volume = 0.5;
+audio1.volume = 0.4;
 
 const audio2 = document.getElementById("audio2");
-audio2.volume = 0.5;
+audio2.volume = 0.4;
 
 let requestId = 0;
 let dropCounter = 0;
