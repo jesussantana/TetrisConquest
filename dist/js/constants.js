@@ -34,8 +34,10 @@ contextNext.scale(blockSize, blockSize);
 image.src = "../images/space.jpg";*/
 const audio = document.getElementById("audio");
 audio.volume = 0.5;
+
 const audio1 = document.getElementById("audio1");
 audio1.volume = 0.5;
+
 let requestId = 0;
 let dropCounter = 0;
 let dropInterval = 1000;

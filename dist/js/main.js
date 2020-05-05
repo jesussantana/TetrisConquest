@@ -9,9 +9,8 @@ const main = () => {
   //if (start = 0) {
 
   player.reset();
-  audio1.pause();
+  //audio1.pause();
   audio.play();
-  
   update();
   // start++;
   //} else {
