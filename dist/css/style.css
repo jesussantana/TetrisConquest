@@ -19,18 +19,12 @@ body,
 html {
     height: 100%;
     color: #E26521;
-
-
 }
 
 p {
     color: yellow;
 }
 
-/*.container {
-    margin-top: 50px;
-    margin-left: 20px;
-}*/
 #myVideo {
     position: fixed;
     right: 0;
@@ -44,26 +38,11 @@ p {
     filter: invert(100%);
 }
 
-/* The hero image */
-/*
-.hero-image {
-    
-
-    background-image: url("../images/space.webp");
-    width: 100%;
-    height: 100%;
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: cover;
-    position: relative;
-}*/
-
 #board {
     /*margin-left: 50px;*/
     border: 10px solid #E26521;
     border-radius: 20px;
     background-image: url("../images/nave.jpg");
-
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
@@ -88,7 +67,6 @@ p {
 
 }
 
-
 #next {
 
     border: 5px solid #F1AC29;
@@ -96,15 +74,14 @@ p {
     box-shadow: 4px 4px 8px black;
 }
 
-h4 {
-    text-shadow: 4px 4px 8px black;
-}
-
-i {
+h4 i{
     text-shadow: 4px 4px 8px black;
 }
 
 #audio {
+    display: none
+}
+#audio1{
     display: none
 }
 

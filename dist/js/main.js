@@ -6,9 +6,23 @@ function init() {
 }
 
 const main = () => {
+  //if (start = 0) {
+
   player.reset();
+  audio1.pause();
   audio.play();
+  
   update();
+  // start++;
+  //} else {
+  //newGame();
+  //start--;
+  //}
+};
+
+const newGame = () => {
+  location.reload();
+  init();
 };
 
 //Iteration 1 - Create Board
@@ -201,8 +215,9 @@ function drawGameOver() {
   for (let i = 0; i < 20; i++) {
     cancelAnimationFrame(update);
   }
+
   dropInterval += 1000000;
-  player.gameOver();
+
   //dropInterval += 100000;
 }
 
@@ -221,6 +236,7 @@ let update = (time = 0) => {
 // Iteration 14 Music ON/OFF
 function generateMusic() {
   return audio.paused ? audio.play() : audio.pause();
+  //audio1.paused ? audio1.play() : audio1.pause();
 }
 
 // Board 20X15

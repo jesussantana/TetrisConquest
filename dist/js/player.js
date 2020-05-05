@@ -21,6 +21,9 @@ class Player {
     this.position.y++;
     if (this.collision(board, player)) {
       this.position.y--;
+
+      player.gameOver;
+
       joinBoard(board, player);
       player.reset();
       boardSweep();
@@ -103,7 +106,8 @@ class Player {
     }
   }
   gameOver() {
-    generateMusic();
+    audio.pause();
+    audio1.play();
     contextDefault.clearRect(0, 0, canvasDefault.width, canvasDefault.height);
     contextDefault.drawImage(
       imageGameOver,
@@ -112,8 +116,9 @@ class Player {
       imageGameOver.width * scaleImage,
       imageGameOver.height * scaleImage
     );
-    dropInterval += 10000;
     cancelAnimationFrame(update);
+    dropInterval += 100000;
+    
     //contextDefault.drawImage(this.imageGameOver, 0, 0, canvas.width, canvas.height);
   }
 }
