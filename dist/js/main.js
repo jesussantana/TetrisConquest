@@ -41,6 +41,7 @@ function drawMatrix(matrix, offset) {
     });
   });
 }
+
 // Redondear rectangulos
 CanvasRenderingContext2D.prototype.roundRect = function (
   x,
@@ -89,8 +90,6 @@ CanvasRenderingContext2D.prototype.roundRect = function (
   }
 };
 
-//www.iteramos.com/pregunta/18203/como-dibujar-un-rectangulo-redondeado-en-html-canvas
-
 // Draw Game
 function drawGame() {
   // Draw Board
@@ -134,58 +133,12 @@ document.addEventListener("keydown", (event) => {
     case "KeyZ":
       player.rotate(-1);
       break;
-    // Rotate Rightz
+    // Rotate Right
     case "KeyX":
       player.rotate(1);
       break;
   }
 });
-
-// Iteration 6 - Controls-2 Rotate
-//1. Rotate Blocksl
-
-// Rotate Matrix
-function rotate(matrix, direction) {
-  // We go through the matrix
-  for (let y = 0; y < matrix.length; y++) {
-    for (let x = 0; x < y; ++x) {
-      // For each position
-      [matrix[x][y], matrix[y][x]] =
-        // Invert the positions to rotate
-        [matrix[y][x], matrix[x][y]];
-    }
-  }
-  // According to one direction or another we do a reverse
-  direction > 0 ? matrix.forEach((row) => row.reverse()) : matrix.reverse();
-}
-
-// Iteration 7
-
-// Player Reset
-function playerReset() {
-  if (nextPlayer.matrix === null) {
-    player.matrix = block.create(
-      block.type[(block.type.length * Math.random()) | 0]
-    );
-  } else {
-    player.matrix = nextPlayer.matrix;
-  }
-  //Next block
-  nextPlayer.matrix = block.create(
-    block.type[(block.type.length * Math.random()) | 0]
-  );
-  player.position.y = 0;
-  player.position.x =
-    ((board[0].length / 2) | 0) - ((player.matrix[0].length / 2) | 0);
-  if (player.collision(board, player)) {
-    board.forEach((row) => row.fill(0));
-    // Score
-    player.score = 0;
-    player.lines = 0;
-
-    updateScore();
-  }
-}
 
 // Iteration 8 - Control Complete rows
 function boardSweep() {
@@ -200,13 +153,16 @@ function boardSweep() {
     board.unshift(row);
     ++y;
     // Score
-    player.score += rowCount * 10;
+
     player.lines += rowCount;
-    
-    if (player.lines >= 1) {
-      drawNextLevel();
-    } else if ((player.lines = 1)) {
-      dropInterval -= 200;
+
+    if (player.lines % 2 === 0) {
+      player.level++;
+      dropInterval -= 100;
+      player.score += rowCount * 10 * player.lines;
+      break;
+    } else {
+      player.score += rowCount * 10;
     }
     rowCount *= 2;
   }
@@ -220,68 +176,47 @@ function updateScore() {
 
 // Iteration 13 - Win --- Next Level
 function drawNextLevel() {
+  //
+  //dropInterval += 1000000;
+
+  context.fillStyle = "../images/nave.jpg";
+  context.fillRect(0, 0, canvas.width, canvas.height);
   for (let i = 0; i < 20; i++) {
     cancelAnimationFrame(update);
   }
-  board = createMatrix(15, 20);
-  //dropInterval += 1000000;
-  context.fillStyle = "../images/nave.jpg";
-  context.fillRect(0, 0, canvas.width, canvas.height);
   //dropInterval += 100000;
 
-  player.level++;
+  player.gameOver();
+  //player.level++;
 }
 
 // Iteration 14 - Game Over
 function drawGameOver() {
   console.log("drawGameOver");
-  for (let i = 0; i < 20; i++) {
-    cancelAnimationFrame(update);
-  }
+
   //cancelAnimationFrame(update);
   //dropInterval += 1000000;
   context.fillStyle = "../images/gameOver.jpg";
   context.fillRect(0, 0, canvas.width, canvas.height);
+  for (let i = 0; i < 20; i++) {
+    cancelAnimationFrame(update);
+  }
+  dropInterval += 1000000;
+  player.gameOver();
   //dropInterval += 100000;
 }
 
 // Update Game
 let update = (time = 0) => {
-  if (player.lines >= 3) {
-    drawGameOver();
+  const deltaTime = time - lastTime;
+  dropCounter += deltaTime;
+  if (dropCounter > dropInterval) {
+    player.drop();
   }
-  if (player.lines < 1) {
-    const deltaTime = time - lastTime;
-    dropCounter += deltaTime;
-    if (dropCounter > dropInterval) {
-      player.drop();
-    }
-    lastTime = time;
-    drawGame();
-    requestAnimationFrame(update);
-  } else if (player.lines >= 2) {
-    drawNextLevel();
-  }
+  lastTime = time;
+  drawGame();
+  requestAnimationFrame(update);
 };
-/*function update(time = 0) {
-  if (player.lines>=2){
-    drawGameOver();
-}
-  if (player.lines<1){
-    const deltaTime = time - lastTime;
-    dropCounter += deltaTime;
-    if (dropCounter > dropInterval) {
-      player.drop();
-    }
-    lastTime = time;
-    drawGame();
-    requestAnimationFrame(update);
-  }else {
-    drawNextLevel();
-  }
-  
-  
-}*/
 
 // Iteration 14 Music ON/OFF
 function generateMusic() {

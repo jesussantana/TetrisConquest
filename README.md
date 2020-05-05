@@ -90,13 +90,13 @@ Start again more difficulty next planet
 
 ### Iteration 12 - Styles
 
-### Iteration 13 WIN
+### Iteration 13 - WIN
 
-### Iteration 14 Button Music On/off
+### Iteration 14 - Button Music On/off
 
-### Iteration 15 Game over
+### Iteration 15 - Game over
 
-### Iteration 16 - Aumento velocidad cada x filas o nivel?
+### Iteration 16 - Increase speed each level
 
 ### Iteration 17 - Se llena el tablero ExplotaZ
 

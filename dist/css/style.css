@@ -37,8 +37,8 @@ p {
     bottom: 0;
     min-width: 100%;
     min-height: 100%;
-    -webkit-transform: scaleX(-5);
-    transform: scaleX(-5);
+    -webkit-transform: scaleX(-25);
+    transform: scaleX(-25);
     image-rendering: pixelated;
     filter: saturate(180%);
     filter: invert(100%);
@@ -59,7 +59,7 @@ p {
 }*/
 
 #board {
-    margin-left: 50px;
+    /*margin-left: 50px;*/
     border: 10px solid #E26521;
     border-radius: 20px;
     background-image: url("../images/nave.jpg");
@@ -68,19 +68,40 @@ p {
     background-repeat: no-repeat;
     background-size: cover;
     position: relative;
+    box-shadow: 4px 4px 8px black
+}
+
+#default {
+
+    border: 10px solid #E26521;
+    border-radius: 20px;
+    background-image: url("../images/tetris2.jpg");
+    background-color: black;
+    text-align: left;
+    color: white;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    position: relative;
     box-shadow: 4px 4px 8px black;
+    image-rendering: pixelated;
 
 }
+
 
 #next {
 
     border: 5px solid #F1AC29;
     border-radius: 10px;
-    box-shadow: 4px 4px 8px orange;
+    box-shadow: 4px 4px 8px black;
 }
 
 h4 {
-    text-shadow: 4px 4px 8px #F1AC29;
+    text-shadow: 4px 4px 8px black;
+}
+
+i {
+    text-shadow: 4px 4px 8px black;
 }
 
 #audio {
@@ -97,4 +118,9 @@ button {
 
 .url {
     cursor: url(../images/bloque.png), auto;
+}
+
+.copyright {
+    color: black;
+    text-shadow: 4px 4px 8px black;
 }

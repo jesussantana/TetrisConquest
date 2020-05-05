@@ -77,4 +77,21 @@ class Blocks {
         break;
     }
   }
+  // Iteration 6 - Controls-2 Rotate
+  //1. Rotate Blocksl
+
+  // Rotate Matrix
+  rotate(matrix, direction) {
+    // We go through the matrix
+    for (let y = 0; y < matrix.length; y++) {
+      for (let x = 0; x < y; ++x) {
+        // For each position
+        [matrix[x][y], matrix[y][x]] =
+          // Invert the positions to rotate
+          [matrix[y][x], matrix[x][y]];
+      }
+    }
+    // According to one direction or another we do a reverse
+    direction > 0 ? matrix.forEach((row) => row.reverse()) : matrix.reverse();
+  }
 }

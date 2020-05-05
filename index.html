@@ -6,7 +6,9 @@
   <!-- Required meta tags -->
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=yes">
+  <link rel=”icon” type=”image/png” href=”/dist/images/bloque.png” sizes="32x32" />
   <!-- Bootstrap CSS -->
+  <link rel="stylesheet" href="/dist/fonts/font-awesome-4.7.0/css/font-awesome.min.css">
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
     integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
   <link rel="stylesheet" href="dist/css/style.css" type="text/css">
@@ -17,9 +19,9 @@
     <video autoplay muted loop id="myVideo">
       <source src="/dist/images/space.mp4" type="video/mp4">
     </video>
-    <div class="container pt-5 text-center">
+    <div class="container-fluid pt-5 text-center">
       <div class="row">
-        <div class="col-md-4">
+        <div class="col-md-3">
           <div>
             <h3> TETRIS CONQUEST </h3>
             </br>
@@ -50,24 +52,48 @@
             <hr />
           </div>
         </div>
-        <div class="col-md-4"><canvas class="game-board" id="board" width="600" height="800"></canvas></div>
+        <div class="col-md-6"><canvas class="game-board" id="board" width="600" height="800"></canvas></div></br>
+        <div class="col-md-3"><canvas class="default" id="default" width="300" height="400"></canvas>
+          <div>
+            <hr />
+            <hr />
+            <hr />
+            <h3> Controls </h3>
+            </br>
+            <p><i class="fa fa-arrow-left fa-lg"></i> Left </p>
+            <p><i class="fa fa-arrow-right fa-lg"></i> Right </p>
+            <p><i class="fa fa-arrow-down fa-lg"></i> Drop </p>
+            <p><i class="fa fa-rotate-left fa-lg"></i> Z </p>
+            <p><i class="fa fa-rotate-right fa-lg"></i> X </p>
+            <hr />
+          </div>
+        </div>
       </div>
     </div>
     <audio id="audio" controls loop>
       <source type="audio/wav" src="dist/sound/Demoscene Time Machine - Hyperdrive.mp3">
+      <source type="audio/wav" src="dist/sound/Demoscene Time Machine - Stealth.mp3">
     </audio>
   </div>
+  <footer>
+    <div class="copyright">
+      <div class="container center">
+        <a href="http://esmarketingdigital.com"><i class="fa fa-copyright" aria-hidden="true"></i> esMarketingDigital
+          2020</a>
+      </div>
+    </div>
+  </footer>
 
   <!-- Optional JavaScript -->
- 
+
   <script src="dist/js/constants.js"></script>
   <script src="dist/js/blocks.js"></script>
   <script src="dist/js/player.js"></script>
   <!-- <script src="dist/js/board.js"></script> -->
   <!-- <script src="dist/js/game.js"></script> -->
   <script src="dist/js/main.js"></script>
-  
-  
+
+
   <!-- jQuery first, then Popper.js, then Bootstrap JS -->
   <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
     integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"

@@ -9,6 +9,9 @@ class Player {
     this.level = 0;
     this.dropFast = 1000;
     this.dropSlow = 50;
+    this.imageGameOver = new Image();
+    this.imageGameOver.src =
+      "https://portal.33bits.net/wp-content/uploads/2018/12/gameoverphrase.jpg";
   }
 
   //Iteration 3 - Move block
@@ -19,7 +22,7 @@ class Player {
     if (this.collision(board, player)) {
       this.position.y--;
       joinBoard(board, player);
-      playerReset();
+      player.reset();
       boardSweep();
       updateScore();
       update();
@@ -56,18 +59,20 @@ class Player {
   rotate(direction) {
     const position = this.position.x;
     let offset = 1;
-    rotate(this.matrix, direction);
+    block.rotate(this.matrix, direction);
     while (this.collision(board, player)) {
       this.position.x += offset;
       offset = -(offset + (offset > 0 ? 1 : -1));
       if (offset > this.matrix[0].length) {
-        rotate(this.matrix, -direction);
+        block.rotate(this.matrix, -direction);
         this.position.x = position;
         return;
       }
     }
   }
+  // Iteration 7
 
+  // Player Reset
   reset() {
     if (nextPlayer.matrix === null) {
       player.matrix = block.create(
@@ -84,14 +89,31 @@ class Player {
     player.position.x =
       ((board[0].length / 2) | 0) - ((player.matrix[0].length / 2) | 0);
     if (player.collision(board, player)) {
+      console.log("reset");
       board.forEach((row) => row.fill(0));
       // Score
-      player.score = 0;
-      player.lines = 0;
+      //player.score = 0;
+      //player.lines = 0;
 
-      updateScore();
-
-      drawGameOver();
+      //updateScore();
+      for (let i = 0; i < 20; i++) {
+        cancelAnimationFrame(update);
+      }
+      this.gameOver();
     }
+  }
+  gameOver() {
+    generateMusic();
+    contextDefault.clearRect(0, 0, canvasDefault.width, canvasDefault.height);
+    contextDefault.drawImage(
+      imageGameOver,
+      xImage,
+      yImage,
+      imageGameOver.width * scaleImage,
+      imageGameOver.height * scaleImage
+    );
+    dropInterval += 10000;
+    cancelAnimationFrame(update);
+    //contextDefault.drawImage(this.imageGameOver, 0, 0, canvas.width, canvas.height);
   }
 }
