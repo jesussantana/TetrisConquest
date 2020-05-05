@@ -107,6 +107,7 @@ class Player {
   }
   gameOver() {
     audio.pause();
+    audio1.play();
     //audio1.play();
     contextDefault.clearRect(0, 0, canvasDefault.width, canvasDefault.height);
     contextDefault.drawImage(
@@ -118,7 +119,7 @@ class Player {
     );
     cancelAnimationFrame(update);
     dropInterval += 100000;
-    
+
     //contextDefault.drawImage(this.imageGameOver, 0, 0, canvas.width, canvas.height);
   }
 }

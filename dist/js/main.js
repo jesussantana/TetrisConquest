@@ -168,6 +168,7 @@ function boardSweep() {
     // Score
 
     player.lines += rowCount;
+    audio2.play();
 
     if (player.lines % 2 === 0) {
       player.level++;

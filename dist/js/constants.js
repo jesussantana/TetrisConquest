@@ -33,10 +33,13 @@ contextNext.scale(blockSize, blockSize);
 /*const image = new Image();
 image.src = "../images/space.jpg";*/
 const audio = document.getElementById("audio");
-audio.volume = 0.5;
+audio.volume = 0.2;
 
-//const audio1 = document.getElementById("audio1");
-//audio1.volume = 0.5;
+const audio1 = document.getElementById("audio1");
+audio1.volume = 0.5;
+
+const audio2 = document.getElementById("audio2");
+audio2.volume = 0.8;
 
 let requestId = 0;
 let dropCounter = 0;
