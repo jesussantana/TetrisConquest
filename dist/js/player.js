@@ -12,6 +12,9 @@ class Player {
     this.imageGameOver = new Image();
     this.imageGameOver.src =
       "https://portal.33bits.net/wp-content/uploads/2018/12/gameoverphrase.jpg";
+    this.imageStart = new Image();
+    this.imageStart.src =
+      "https://i1.sndcdn.com/artworks-000276723650-6g0802-t500x500.jpg";
   }
 
   //Iteration 3 - Move block
@@ -101,18 +104,30 @@ class Player {
   gameOver() {
     generateMusic();
     audio1.play();
+    //this.drawDefault(this.imageGameOver);
     contextDefault.clearRect(0, 0, canvasDefault.width, canvasDefault.height);
     contextDefault.drawImage(
       imageGameOver,
-      xImage,
-      yImage,
-      imageGameOver.width * scaleImage,
-      imageGameOver.height * scaleImage
+      xImageGameOver,
+      yImageGameOver,
+      imageGameOver.width * scaleImageGameOver,
+      imageGameOver.height * scaleImageGameOver
     );
     cancelAnimationFrame(update);
     document.removeEventListener("keydown", eventList);
     dropInterval += 1000000;
 
     //contextDefault.drawImage(this.imageGameOver, 0, 0, canvas.width, canvas.height);
+  }
+
+  start() {
+    contextDefault.clearRect(0, 0, canvasDefault.width, canvasDefault.height);
+    contextDefault.drawImage(
+      imageStart,
+      xImageStart,
+      yImageStart,
+      imageGameOver.width * scaleImageStart,
+      imageGameOver.height * scaleImageStart
+    );
   }
 }

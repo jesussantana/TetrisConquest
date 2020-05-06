@@ -23,6 +23,7 @@ html {
 
 p {
     color: yellow;
+
 }
 
 #myVideo {
@@ -69,9 +70,13 @@ p {
 
 #next {
 
-    border: 5px solid #F1AC29;
+    border: 5px solid #E26521;
     border-radius: 10px;
     box-shadow: 4px 4px 8px black;
+}
+
+h4 {
+    text-shadow: 4px 4px 8px black;
 }
 
 h4 i {

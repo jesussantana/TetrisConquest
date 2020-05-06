@@ -14,17 +14,42 @@ const gameOver = 0;
 const nextLevel = 0;
 let start = 0;
 
-const imageGameOver = new Image();
-imageGameOver.src =
-  "https://portal.33bits.net/wp-content/uploads/2018/12/gameoverphrase.jpg";
+const imageStart = new Image();
+imageStart.src =
+  "https://cdn130.picsart.com/235986056050212.png?type=webp&to=min&r=1024";
 
-const scaleImage = Math.min(
+const imageGo = new Image();
+imageGo.src = "http://esmarketingdigital.com/images/go.png";
+
+const imageGameOver = new Image();
+imageGameOver.src = "http://esmarketingdigital.com/images/GAMEoVER.png";
+
+const scaleImageStart = Math.min(
+  canvasDefault.width / imageStart.width,
+  canvasDefault.height / imageStart.height
+);
+const scaleImageGo = Math.min(
+  canvasDefault.width / imageGo.width,
+  canvasDefault.height / imageGo.height
+);
+
+const scaleImageGameOver = Math.min(
   canvasDefault.width / imageGameOver.width,
   canvasDefault.height / imageGameOver.height
 );
-const xImage = canvasDefault.width / 2 - (imageGameOver.width / 2) * scaleImage;
-const yImage =
-  canvasDefault.height / 2 - (imageGameOver.height / 2) * scaleImage;
+
+const xImageStart =
+  canvasDefault.width / 2 - (imageStart.width / 2) * scaleImageStart;
+const yImageStart =
+  canvasDefault.height / 2 - (imageStart.height / 2) * scaleImageStart;
+
+const xImageGo = canvasDefault.width / 2 - (imageGo.width / 2) * scaleImageGo;
+const yImageGo = canvasDefault.height / 2 - (imageGo.height / 2) * scaleImageGo;
+
+const xImageGameOver =
+  canvasDefault.width / 2 - (imageGameOver.width / 2) * scaleImageGameOver;
+const yImageGameOver =
+  canvasDefault.height / 2 - (imageGameOver.height / 2) * scaleImageGameOver;
 
 // Scale Blocks
 context.scale(blockSize, blockSize);

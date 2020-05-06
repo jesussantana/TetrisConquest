@@ -2,6 +2,7 @@
 
 function init() {
   buttonStart();
+  eventGo();
   main();
 }
 
@@ -51,3 +52,28 @@ const boardNext = createMatrix(2, 2);
 const block = new Blocks();
 const nextPlayer = new Player();
 const player = new Player();
+
+const eventStart = () => {
+  contextDefault.clearRect(0, 0, canvasDefault.width, canvasDefault.height);
+  contextDefault.drawImage(
+    imageStart,
+    xImageStart,
+    yImageStart,
+    imageStart.width * scaleImageStart,
+    imageStart.height * scaleImageStart
+  );
+};
+
+const eventGo = () => {
+  contextDefault.clearRect(0, 0, canvasDefault.width, canvasDefault.height);
+  contextDefault.drawImage(
+    imageGo,
+    xImageGo,
+    yImageGo,
+    imageGo.width * scaleImageGo,
+    imageGo.height * scaleImageGo
+  );
+};
+
+eventStart();
+//window.addEventListener("load", eventStart);
