@@ -90,13 +90,7 @@ class Player {
     player.position.x =
       ((board[0].length / 2) | 0) - ((player.matrix[0].length / 2) | 0);
     if (player.collision(board, player)) {
-      console.log("reset");
       board.forEach((row) => row.fill(0));
-      // Score
-      //player.score = 0;
-      //player.lines = 0;
-
-      //updateScore();
       for (let i = 0; i < 20; i++) {
         cancelAnimationFrame(update);
       }

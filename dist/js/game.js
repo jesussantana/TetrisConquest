@@ -27,19 +27,12 @@ function joinBoard(board, player) {
 
 // Iteration 14 - Game Over
 function drawGameOver() {
-  console.log("drawGameOver");
-
-  //cancelAnimationFrame(update);
-  //dropInterval += 1000000;
   context.fillStyle = "../images/gameOver.jpg";
   context.fillRect(0, 0, canvas.width, canvas.height);
   for (let i = 0; i < 20; i++) {
     cancelAnimationFrame(update);
   }
-
   dropInterval += 1000000;
-
-  //dropInterval += 100000;
 }
 
 // Update Game
@@ -63,18 +56,12 @@ function updateScore() {
 
 // Iteration 13 - Win --- Next Level
 function drawNextLevel() {
-  //
-  //dropInterval += 1000000;
-
   context.fillStyle = "../images/nave.jpg";
   context.fillRect(0, 0, canvas.width, canvas.height);
   for (let i = 0; i < 20; i++) {
     cancelAnimationFrame(update);
   }
-  //dropInterval += 100000;
-
   player.gameOver();
-  //player.level++;
 }
 
 // Iteration 14 Music ON/OFF
@@ -86,13 +73,14 @@ function generateMusic() {
 // Iteration 17 Buttons
 function buttonMusic() {
   let music = document.getElementById("music");
-  if (music.value == "MUSIC OFF") music.value = "MUSIC ON";
-  else music.value = "MUSIC OFF";
+  music.value == "MUSIC OFF"
+    ? (music.value = "MUSIC ON")
+    : (music.value = "MUSIC OFF");
   document.getElementById("music").innerText = music.value;
 }
+
 function buttonStart() {
   let reset = document.getElementById("start");
-  if (reset.value == "RESET") reset.value = "START";
-  else reset.value = "RESET";
+  reset.value == "RESET" ? (reset.value = "START") : (reset.value = "RESET");
   document.getElementById("start").innerText = reset.value;
 }
