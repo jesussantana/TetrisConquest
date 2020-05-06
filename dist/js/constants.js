@@ -46,18 +46,3 @@ let dropCounter = 0;
 let dropInterval = 1000;
 let lastTime = 0;
 
-/*contextDefault.fillStyle = "white";
-contextDefault.textAlign = "right";
-contextDefault.font = "bold 10px Arial";
-contextDefault.fillText(
-  "The game is a tetris version set</br> in planetary conquest by terraforming. ",
-  0,
-  0
-);
-contextDefault.fillText(
-  "Our ship reaches the planet and launches</br> blocks of chemical elements to transform </br>the planet and make it habitable. ",
-  50,
-  200
-);*/
-
-//contextDefault.drawImage(imageGameOver, 0, 0, canvas.width, canvas.height);

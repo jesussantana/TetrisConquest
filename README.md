@@ -98,27 +98,4 @@ cd
 
 ### Iteration 16 - Increase speed each level
 
-### Iteration 17 - Se llena el tablero ExplotaZ
-
-### Iteration 18 Style Game
-
-#### Iteration 19 Style Blocks 
-
-#### Iteration 20 Style Board 
-
-1. Decoracion Tablero / Fondo tablero / Movimiento
-2. Fondo pagina
-3. Score
-4. Next
-5. Pausa / Continua
-
-### Iteration 21 Opcciones
-
-1. Tablero / Tamaño
-2. Obstaculos / Dificultad
-
-### Iteration 22 Presentacion  
-
-### Iteration 23 Musica 2  
-
-### Iteration 24 Next Level
+### Iteration 17 - Sounds & Buttons

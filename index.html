@@ -6,12 +6,13 @@
   <!-- Required meta tags -->
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=yes">
-  <link rel=”icon” type=”image/png” href=”/dist/images/bloque.png” sizes="32x32" />
+  <!-- <link rel=”icon” type=”image/png” href=”/dist/images/bloque.png” sizes="32x32" />-->
   <!-- Bootstrap CSS -->
-  <link rel="stylesheet" href="https://esmarketingdigital.com/dist/css/font-awesome.min.css">
-  <!-- <link rel="stylesheet" href="/dist/fonts/font-awesome-4.7.0/css/font-awesome.min.css"> -->
+  <!-- <link rel="stylesheet" href="https://esmarketingdigital.com/dist/css/font-awesome.min.css"> -->
+
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
     integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+  <link rel="stylesheet" href="/dist/fonts/font-awesome-4.7.0/css/font-awesome.min.css">
   <link rel="stylesheet" href="dist/css/style.css" type="text/css">
 </head>
 
@@ -46,11 +47,11 @@
           <hr />
           <div>
             <hr />
-            <button onclick="generateMusic()" class="btn btn-outline-warning btn-lg"> MUSIC </button>
+            <button onclick="generateMusic()" class="btn btn-outline-warning btn-lg" id="music">MUSIC ON</button>
             <hr />
             <hr />
 
-            <button onclick="init()" class="btn btn-outline-success btn-lg"> START </button>
+            <button onclick="init()" class="btn btn-outline-success btn-lg" id="start"> START </button>
             <hr />
           </div>
         </div>
@@ -96,10 +97,10 @@
   <!-- Optional JavaScript -->
 
   <script src="dist/js/constants.js"></script>
+  <script src="dist/js/game.js"></script>
+  <script src="dist/js/board.js"></script>
   <script src="dist/js/blocks.js"></script>
   <script src="dist/js/player.js"></script>
-  <!-- <script src="dist/js/board.js"></script> -->
-  <!-- <script src="dist/js/game.js"></script> -->
   <script src="dist/js/main.js"></script>
 
 
