@@ -45,4 +45,3 @@ let requestId = 0;
 let dropCounter = 0;
 let dropInterval = 1000;
 let lastTime = 0;
-

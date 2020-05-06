@@ -99,9 +99,8 @@ class Player {
   }
   // GameOver
   gameOver() {
-    audio.pause();
-    audio1.play();
-    //audio1.play();
+    generateMusic();
+    audio2.play();
     contextDefault.clearRect(0, 0, canvasDefault.width, canvasDefault.height);
     contextDefault.drawImage(
       imageGameOver,
