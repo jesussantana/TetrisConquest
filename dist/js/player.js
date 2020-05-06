@@ -100,7 +100,7 @@ class Player {
   // GameOveradd
   gameOver() {
     generateMusic();
-    audio2.play();
+    audio1.play();
     contextDefault.clearRect(0, 0, canvasDefault.width, canvasDefault.height);
     contextDefault.drawImage(
       imageGameOver,
