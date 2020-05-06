@@ -97,7 +97,7 @@ class Player {
       this.gameOver();
     }
   }
-  // GameOver
+  // GameOveradd
   gameOver() {
     generateMusic();
     audio2.play();
