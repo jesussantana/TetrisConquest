@@ -69,47 +69,56 @@ function buttonStart() {
 }
 
 // Draw Events Game
-const scaleImage = (canvas, image) => {
-  return Math.min(canvas.width / image.width, canvas.height / image.height);
+const scaleImage = (image) => {
+  return Math.min(
+    canvasDefault.width / image.width,
+    canvasDefault.height / image.height
+  );
 };
 // x y for Image Scaled
-const xImage = (canvas, image, scale) => {
-  return canvas.width / 2 - (image.width / 2) * scale;
+const xImage = (image, scale) => {
+  return canvasDefault.width / 2 - (image.width / 2) * scale;
 };
 const yImage = (image, scale) => {
-  return canvas.height / 2 - (image.height / 2) * scale;
+  return canvasDefault.height / 2 - (image.height / 2) * scale;
 };
 
 // Draw Events Start - Go - Game Over
-const eventImage = (context, canvas, image, x, y, scale) => {
-  context.clearRect(0, 0, canvas.width, canvas.height);
-  context.drawImage(image, x, y, image.width * scale, image.height * scale);
+const eventImage = (image, x, y, scale) => {
+  contextDefault.clearRect(0, 0, canvasDefault.width, canvasDefault.height);
+  contextDefault.drawImage(
+    image,
+    x,
+    y,
+    image.width * scale,
+    image.height * scale
+  );
 };
 // Iteration 13 - Win
 // Iteration 14 - Game Over
 const eventGameOver = () => {
   eventImage(
     imageGameOver,
-    xImage(canvasDefault, imageGameOver, scaleImage(imageGameOver)),
-    yImage(canvasDefault, imageGameOver, scaleImage(imageGameOver)),
-    scaleImage(canvasDefault, imageGameOver)
+    xImage(imageGameOver, scaleImage(imageGameOver)),
+    yImage(imageGameOver, scaleImage(imageGameOver)),
+    scaleImage(imageGameOver)
   );
 };
 // Draw Press Start
 const eventStart = () => {
   eventImage(
     imageStart,
-    xImage(canvasDefault, imageStart, scaleImage(imageStart)),
-    yImage(canvasDefault, imageStart, scaleImage(imageStart)),
-    scaleImage(canvasDefault, imageStart)
+    xImage(imageStart, scaleImage(imageStart)),
+    yImage(imageStart, scaleImage(imageStart)),
+    scaleImage(imageStart)
   );
 };
 // Draw Image Game On
 const eventGo = () => {
   eventImage(
     imageGo,
-    xImage(canvasDefault, imageGo, scaleImage(imageGo)),
-    yImage(canvasDefault, imageGo, scaleImage(imageGo)),
-    scaleImage(canvasDefault, imageGo)
+    xImage(imageGo, scaleImage(imageGo)),
+    yImage(imageGo, scaleImage(imageGo)),
+    scaleImage(imageGo)
   );
 };
