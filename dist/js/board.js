@@ -32,7 +32,7 @@ function drawMatrix(matrix, offset) {
   });
 }
 
-// Redondear Rectangulos
+// Round Squares
 CanvasRenderingContext2D.prototype.roundRect = function (
   x,
   y,
@@ -106,7 +106,7 @@ function boardSweep() {
       player.level++;
       // Increase speed
       dropInterval -= 50;
-      // Change Score 
+      // Change Score
       // Bonus
       player.score += rowCount * 10 * player.lines;
       break;

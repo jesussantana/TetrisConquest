@@ -2,30 +2,25 @@
 
 ## Description
 
-The game is a tetris version set in planetary conquest by terraforming.
+    The game is a tetris version set in planetary conquest by terraforming.
 
- Our ship reaches the planet and launches blocks of chemical elements to transform the planet and make it habitable.
+    Our ship reaches the planet and launches blocks of chemical elements to transform the planet and make it habitable.
     
 ## Rules of the game 
 
-Win complete lines and ship land to conquer
+    Win complete lines and ship land to conquer
 
-1. Ship arrives and tetris begins
-2. Blocks go down to complete rows
-3. Completing rows increases punctuation.
-4. Complete x board rows increases score.
-5. Once complete block board / Win End - NEXT LEVEL
-6. Blocks collide with ship / top GAME OVER
+    1. Ship arrives and tetris begins
+    2. Blocks go down to complete rows
+    3. Completing rows increases punctuation.
+    4. Complete x board rows increases score.
+    5. Once complete block board / Win End - NEXT LEVEL
+    6. Blocks collide with ship / top GAME OVER
  
- ### Next Level
-
-Start again more difficulty next planet
-        
-   
 
 ## MVP - User stories
 
-Code Refactor & Fix Bugs
+    Code Refactor & Fix Bugs
 
 
 ## Backlog

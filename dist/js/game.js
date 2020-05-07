@@ -47,14 +47,6 @@ function updateScore() {
   document.getElementById("level").innerText = player.level;
 }
 
-// Iteration 13 - Win --- Next Level
-/*function drawNextLevel() {
-  context.fillStyle = "../images/nave.jpg";
-  context.fillRect(0, 0, canvas.width, canvas.height);
-  cancelAnimationFrame(update);
-  player.gameOver();
-}*/
-
 // Iteration 14 Music ON/OFF
 function generateMusic() {
   buttonMusic();
@@ -76,51 +68,48 @@ function buttonStart() {
   document.getElementById("start").innerText = reset.value;
 }
 
+// Draw Events Game
+const scaleImage = (canvas, image) => {
+  return Math.min(canvas.width / image.width, canvas.height / image.height);
+};
+// x y for Image Scaled
+const xImage = (canvas, image, scale) => {
+  return canvas.width / 2 - (image.width / 2) * scale;
+};
+const yImage = (image, scale) => {
+  return canvas.height / 2 - (image.height / 2) * scale;
+};
+
 // Draw Events Start - Go - Game Over
-const eventImage = (image, x, y, scale) => {
-  contextDefault.clearRect(0, 0, canvasDefault.width, canvasDefault.height);
-  contextDefault.drawImage(
-    image,
-    x,
-    y,
-    image.width * scale,
-    image.height * scale
-  );
+const eventImage = (context, canvas, image, x, y, scale) => {
+  context.clearRect(0, 0, canvas.width, canvas.height);
+  context.drawImage(image, x, y, image.width * scale, image.height * scale);
 };
 // Iteration 13 - Win
 // Iteration 14 - Game Over
-const eventGameOver = () =>{
-  //eventImage(imageGameOver, xImage(imageGameOver),yImage(imageGameOver), scaleImage(imageGameOver));
-  contextDefault.clearRect(0, 0, canvasDefault.width, canvasDefault.height);
-    contextDefault.drawImage(
-      imageGameOver,
-      xImageGameOver,
-      yImageGameOver,
-      imageGameOver.width * scaleImageGameOver,
-      imageGameOver.height * scaleImageGameOver
-    );
-}
+const eventGameOver = () => {
+  eventImage(
+    imageGameOver,
+    xImage(canvasDefault, imageGameOver, scaleImage(imageGameOver)),
+    yImage(canvasDefault, imageGameOver, scaleImage(imageGameOver)),
+    scaleImage(canvasDefault, imageGameOver)
+  );
+};
 // Draw Press Start
 const eventStart = () => {
-  //eventImage(imageStart, xImage(imageStart),yImage(imageStart), scaleImage(imageStart));
-  contextDefault.clearRect(0, 0, canvasDefault.width, canvasDefault.height);
-  contextDefault.drawImage(
+  eventImage(
     imageStart,
-    xImageStart,
-    yImageStart,
-    imageStart.width * scaleImageStart,
-    imageStart.height * scaleImageStart
+    xImage(canvasDefault, imageStart, scaleImage(imageStart)),
+    yImage(canvasDefault, imageStart, scaleImage(imageStart)),
+    scaleImage(canvasDefault, imageStart)
   );
 };
 // Draw Image Game On
 const eventGo = () => {
-  //eventImage(imageGo, xImage(imageGo),yImage(imageGo), scaleImage(imageGo));
-  contextDefault.clearRect(0, 0, canvasDefault.width, canvasDefault.height);
-  contextDefault.drawImage(
+  eventImage(
     imageGo,
-    xImageGo,
-    yImageGo,
-    imageGo.width * scaleImageGo,
-    imageGo.height * scaleImageGo
+    xImage(canvasDefault, imageGo, scaleImage(imageGo)),
+    yImage(canvasDefault, imageGo, scaleImage(imageGo)),
+    scaleImage(canvasDefault, imageGo)
   );
 };

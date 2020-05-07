@@ -49,6 +49,7 @@ class Player {
       this.position.x -= offset;
     }
   }
+
   // Check Collisions
   collision(board, player) {
     const matriz = player.matrix;
@@ -67,6 +68,7 @@ class Player {
     }
     return false;
   }
+
   // Rotate Block in Board
   rotate(direction) {
     const position = this.position.x;
@@ -98,6 +100,8 @@ class Player {
       // Assign value Next Block to actual Block
       player.matrix = nextPlayer.matrix;
     }
+    // +1 Point for Block
+    player.score++;
     // Create Next block
     nextPlayer.matrix = block.create(
       block.type[(block.type.length * Math.random()) | 0]
@@ -114,6 +118,7 @@ class Player {
       this.gameOver();
     }
   }
+
   // GameOver
   gameOver() {
     // Music OFF
@@ -127,7 +132,5 @@ class Player {
     // EventListener key OFF
     document.removeEventListener("keydown", eventList);
     dropInterval += 1000000;
-
-    //contextDefault.drawImage(this.imageGameOver, 0, 0, canvas.width, canvas.height);
   }
 }

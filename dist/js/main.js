@@ -1,5 +1,6 @@
 "use strict";
 
+// Press Button Start
 function init() {
   // Change Info button Start
   buttonStart();
@@ -9,6 +10,7 @@ function init() {
   main();
 }
 
+// Run Game
 const main = () => {
   // if button Reset Reload
   if (start === 1) {
@@ -60,6 +62,5 @@ const block = new Blocks();
 const nextPlayer = new Player();
 const player = new Player();
 
- // draw Press Start
+// Draw Press Start
 eventStart();
-

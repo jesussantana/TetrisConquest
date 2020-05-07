@@ -85,7 +85,7 @@ button {
 }
 
 .url {
-    cursor: url(../images/bloque.png), auto;
+    cursor: url(./images/bloque.png), auto;
 }
 
 .copyright {
