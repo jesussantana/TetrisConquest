@@ -14,7 +14,7 @@ function drawGame() {
   drawMatrix(nextPlayer.matrix, 0);
 }
 
-// Join Player & BOard
+// Join Player & Board
 function joinBoard(board, player) {
   player.matrix.forEach((row, y) => {
     row.forEach((value, x) => {
@@ -25,25 +25,18 @@ function joinBoard(board, player) {
   });
 }
 
-// Iteration 14 - Game Over
-function drawGameOver() {
-  context.fillStyle = "../images/gameOver.jpg";
-  context.fillRect(0, 0, canvas.width, canvas.height);
-  for (let i = 0; i < 20; i++) {
-    cancelAnimationFrame(update);
-  }
-  dropInterval += 1000000;
-}
-
-// Update Game
+// Update Game - Run Game
 let update = (time = 0) => {
   const deltaTime = time - lastTime;
   dropCounter += deltaTime;
+  // Check counter and Interval for drop
   if (dropCounter > dropInterval) {
     player.drop();
   }
   lastTime = time;
+  // Draw game
   drawGame();
+  // Run animation
   requestAnimationFrame(update);
 };
 
@@ -55,22 +48,20 @@ function updateScore() {
 }
 
 // Iteration 13 - Win --- Next Level
-function drawNextLevel() {
+/*function drawNextLevel() {
   context.fillStyle = "../images/nave.jpg";
   context.fillRect(0, 0, canvas.width, canvas.height);
-  for (let i = 0; i < 20; i++) {
-    cancelAnimationFrame(update);
-  }
+  cancelAnimationFrame(update);
   player.gameOver();
-}
+}*/
 
 // Iteration 14 Music ON/OFF
 function generateMusic() {
   buttonMusic();
-  return audio.paused ? audio.play() : audio.pause();
-  //audio1.paused ? audio1.play() : audio1.pause();
+  return audioA.paused ? audioA.play() : audioA.pause();
 }
 // Iteration 17 Buttons
+// Change Value Button Music
 function buttonMusic() {
   let music = document.getElementById("music");
   music.value == "MUSIC OFF"
@@ -78,9 +69,58 @@ function buttonMusic() {
     : (music.value = "MUSIC OFF");
   document.getElementById("music").innerText = music.value;
 }
-
+// Change Value Button Start
 function buttonStart() {
   let reset = document.getElementById("start");
   reset.value == "RESET" ? (reset.value = "START") : (reset.value = "RESET");
   document.getElementById("start").innerText = reset.value;
 }
+
+// Draw Events Start - Go - Game Over
+const eventImage = (image, x, y, scale) => {
+  contextDefault.clearRect(0, 0, canvasDefault.width, canvasDefault.height);
+  contextDefault.drawImage(
+    image,
+    x,
+    y,
+    image.width * scale,
+    image.height * scale
+  );
+};
+// Iteration 13 - Win
+// Iteration 14 - Game Over
+const eventGameOver = () =>{
+  //eventImage(imageGameOver, xImage(imageGameOver),yImage(imageGameOver), scaleImage(imageGameOver));
+  contextDefault.clearRect(0, 0, canvasDefault.width, canvasDefault.height);
+    contextDefault.drawImage(
+      imageGameOver,
+      xImageGameOver,
+      yImageGameOver,
+      imageGameOver.width * scaleImageGameOver,
+      imageGameOver.height * scaleImageGameOver
+    );
+}
+// Draw Press Start
+const eventStart = () => {
+  //eventImage(imageStart, xImage(imageStart),yImage(imageStart), scaleImage(imageStart));
+  contextDefault.clearRect(0, 0, canvasDefault.width, canvasDefault.height);
+  contextDefault.drawImage(
+    imageStart,
+    xImageStart,
+    yImageStart,
+    imageStart.width * scaleImageStart,
+    imageStart.height * scaleImageStart
+  );
+};
+// Draw Image Game On
+const eventGo = () => {
+  //eventImage(imageGo, xImage(imageGo),yImage(imageGo), scaleImage(imageGo));
+  contextDefault.clearRect(0, 0, canvasDefault.width, canvasDefault.height);
+  contextDefault.drawImage(
+    imageGo,
+    xImageGo,
+    yImageGo,
+    imageGo.width * scaleImageGo,
+    imageGo.height * scaleImageGo
+  );
+};

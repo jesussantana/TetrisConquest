@@ -5,6 +5,7 @@
 function createMatrix(width, height) {
   const matrix = [];
   while (height--) {
+    // Fill Matrix
     matrix.push(new Array(width).fill(0));
   }
   return matrix;
@@ -14,13 +15,14 @@ function createMatrix(width, height) {
 
 // Draw Matrix Board & Block
 function drawMatrix(matrix, offset) {
+  // Iterate Matrix
   matrix.forEach((row, y) => {
     row.forEach((value, x) => {
+      // Draw if has value
       if (value !== 0) {
         context.fillStyle = block.colors[value];
         context.fillRect(x + offset.x, y + offset.y, 1, 1);
         //context.roundRect(x + offset.x, y + offset.y, 0.5, 0.5, {upperLeft:0.01,upperRight:0.01}, true, true);
-
         //Next block
         contextNext.fillStyle = block.colors[value];
         contextNext.fillRect(x, y, 1, 1);
@@ -30,7 +32,7 @@ function drawMatrix(matrix, offset) {
   });
 }
 
-// Redondear rectangulos
+// Redondear Rectangulos
 CanvasRenderingContext2D.prototype.roundRect = function (
   x,
   y,
@@ -78,29 +80,38 @@ CanvasRenderingContext2D.prototype.roundRect = function (
   }
 };
 
-// Iteration 8 - Control Complete rows
+// Iteration 8 - Check Complete Rows
 function boardSweep() {
   let rowCount = 1;
+  // Iterate Board
   outer: for (let y = board.length - 1; y > 0; --y) {
     for (let x = 0; x < board[y].length; ++x) {
+      // Check is Empty
       if (board[y][x] === 0) {
         continue outer;
       }
     }
     const row = board.splice(y, 1)[0].fill(0);
+    // Delete Row
     board.unshift(row);
     ++y;
     // Score
-
+    // Add Complete lines to Player
     player.lines += rowCount;
+    // Sound Line Complete
     audio2.play();
-
+    // Check change level
     if (player.lines % 2 === 0) {
+      // Add Level
       player.level++;
-      dropInterval -= 100;
+      // Increase speed
+      dropInterval -= 50;
+      // Change Score 
+      // Bonus
       player.score += rowCount * 10 * player.lines;
       break;
     } else {
+      // Normal Score
       player.score += rowCount * 10;
     }
     rowCount *= 2;

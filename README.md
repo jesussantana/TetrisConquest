@@ -25,22 +25,7 @@ Start again more difficulty next planet
 
 ## MVP - User stories
 
-
-### Iteration 4 - Controls-1
-
-    1. Left / Right
-    2. Down + speed increase
-    3. Detect side collisions
-    4. Detect collision Down
-    
-### Iteration 5 - Create Blocks 
-
-    1. Create Blocks
-    2. Display Random Blocks
-
-### Iteration 6 - Controls-2 Rotate
-
-    1. Rotate Blocks
+Code Refactor & Fix Bugs
 
 
 ## Backlog

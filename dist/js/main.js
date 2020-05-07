@@ -1,19 +1,26 @@
 "use strict";
 
 function init() {
+  // Change Info button Start
   buttonStart();
+  // Draw image Game
   eventGo();
+  // Run Game
   main();
 }
 
 const main = () => {
+  // if button Reset Reload
   if (start === 1) {
     location.reload();
   }
+  // Reset Info Player
   player.reset();
-  //audio1.pause();
+  // Music On
   generateMusic();
+  // Execute game
   update();
+  // Modify value for button Reset
   start = 1;
 };
 
@@ -46,34 +53,13 @@ const eventList = () => {
 document.addEventListener("keydown", eventList);
 
 // Board 20X15
-let board = createMatrix(15, 20);
+const board = createMatrix(15, 20);
 const boardNext = createMatrix(2, 2);
 // Initialize Instances
 const block = new Blocks();
 const nextPlayer = new Player();
 const player = new Player();
 
-const eventStart = () => {
-  contextDefault.clearRect(0, 0, canvasDefault.width, canvasDefault.height);
-  contextDefault.drawImage(
-    imageStart,
-    xImageStart,
-    yImageStart,
-    imageStart.width * scaleImageStart,
-    imageStart.height * scaleImageStart
-  );
-};
-
-const eventGo = () => {
-  contextDefault.clearRect(0, 0, canvasDefault.width, canvasDefault.height);
-  contextDefault.drawImage(
-    imageGo,
-    xImageGo,
-    yImageGo,
-    imageGo.width * scaleImageGo,
-    imageGo.height * scaleImageGo
-  );
-};
-
+ // draw Press Start
 eventStart();
-//window.addEventListener("load", eventStart);
+

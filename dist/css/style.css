@@ -40,7 +40,6 @@ p {
 }
 
 #board {
-    /*margin-left: 50px;*/
     border: 10px solid #E26521;
     border-radius: 20px;
     background-image: url("../images/nave.jpg");
@@ -52,7 +51,6 @@ p {
 }
 
 #default {
-
     border: 10px solid #E26521;
     border-radius: 20px;
     background-image: url("../images/tetris2.jpg");
@@ -69,7 +67,6 @@ p {
 }
 
 #next {
-
     border: 5px solid #E26521;
     border-radius: 10px;
     box-shadow: 4px 4px 8px black;
@@ -79,24 +76,8 @@ h4 {
     text-shadow: 4px 4px 8px black;
 }
 
-h4 i {
-    text-shadow: 4px 4px 8px black;
-}
-
 button {
     box-shadow: 4px 4px 8px black;
-}
-
-#audio {
-    display: none
-}
-
-#audio1 {
-    display: none
-}
-
-#audio2 {
-    display: none
 }
 
 .img {
