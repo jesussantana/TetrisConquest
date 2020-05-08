@@ -39,6 +39,40 @@ p {
     filter: invert(100%);
 }
 
+.score {
+    margin-top: 20px;
+    margin-bottom: 50px;
+}
+
+.next {
+    margin-top: 50px;
+    margin-bottom: 50px;
+}
+
+#next {
+    border: 5px solid #E26521;
+    border-radius: 10px;
+    box-shadow: 4px 4px 8px black;
+}
+
+.buttons {
+    margin-top: 50px;
+    margin-bottom: 20px;
+}
+
+.controls {
+    margin-top: 60px;
+    margin-bottom: 40px;
+}
+
+h4 {
+    text-shadow: 4px 4px 8px black;
+}
+
+button {
+    box-shadow: 4px 4px 8px black;
+}
+
 #board {
     border: 10px solid #E26521;
     border-radius: 20px;
@@ -51,6 +85,7 @@ p {
 }
 
 #default {
+    margin-top: 20px;
     border: 10px solid #E26521;
     border-radius: 20px;
     background-image: url("../images/tetris2.jpg");
@@ -66,20 +101,6 @@ p {
 
 }
 
-#next {
-    border: 5px solid #E26521;
-    border-radius: 10px;
-    box-shadow: 4px 4px 8px black;
-}
-
-h4 {
-    text-shadow: 4px 4px 8px black;
-}
-
-button {
-    box-shadow: 4px 4px 8px black;
-}
-
 .img {
     image-rendering: pixelated;
 }
@@ -91,4 +112,8 @@ button {
 .copyright {
     color: black;
     text-shadow: 4px 4px 8px black;
+}
+
+#audioA {
+    display: none;
 }

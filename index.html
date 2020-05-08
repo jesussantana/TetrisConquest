@@ -6,7 +6,6 @@
   <!-- Required meta tags -->
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=yes">
-
   <!-- Bootstrap CSS -->
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
     integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
@@ -24,7 +23,7 @@
     <div class="container-fluid pt-5 text-center">
       <div class="row">
         <div class="col-md-3">
-          <div>
+          <div class="score">
             <h2> TETRIS CONQUEST </h3>
               </br>
               <p> Points: <span id="score"> 0 </span> </p>
@@ -32,49 +31,39 @@
               <p> Level: <span id="level"> 0 </span></p>
           </div>
           <hr />
-          <hr />
-          <hr />
-          <hr />
-          <hr />
-          <div>
+          <div class="next">
             <h4> NEXT </h4></br>
             <canvas class="" id="next" width="120" height="120"></canvas>
           </div>
           <hr />
-          <hr />
-          <hr />
-          <hr />
-          <hr />
-          <div>
-            <hr />
+          <div class="buttons">
             <button onclick="generateMusic()" class="btn btn-outline-warning btn-lg" id="music">MUSIC ON</button>
-            <hr />
-            <hr />
+            </br>
+            </br>
+          </br>
             <button onclick="init()" class="btn btn-outline-success btn-lg" id="start"> START </button>
-            <hr />
           </div>
+          
         </div>
         <div class="col-md-6"><canvas class="game-board" id="board" width="600" height="800"></canvas></div></br>
         <div class="col-md-3"><canvas class="default" id="default" width="300" height="400"></canvas>
           <div>
             <hr />
-            <hr />
-            <hr />
-            <hr />
-            <h3> CONTROLS </h3>
-            </br>
-            <p><i class="fa fa-arrow-left fa-lg"></i> Left </p>
-            <p><i class="fa fa-arrow-right fa-lg"></i> Right </p>
-            <p><i class="fa fa-arrow-down fa-lg"></i> Drop </p>
-            <p><i class="fa fa-rotate-left fa-lg"></i> Z </p>
-            <p><i class="fa fa-rotate-right fa-lg"></i> X </p>
-            <hr />
+            <div class="controls">
+              <h3> CONTROLS </h3>
+              </br>
+              <p><i class="fa fa-arrow-left fa-lg"></i> Left </p>
+              <p><i class="fa fa-arrow-right fa-lg"></i> Right </p>
+              <p><i class="fa fa-arrow-down fa-lg"></i> Drop </p>
+              <p><i class="fa fa-rotate-left fa-lg"></i> Z </p>
+              <p><i class="fa fa-rotate-right fa-lg"></i> X </p>
+            </div>
           </div>
         </div>
       </div>
     </div>
     <audio id="audioA">
-      <source type="audio/wav" src="dist/sound/Demoscene Time Machine - Hyperdrive.mp3" loop>
+      <source type="audio/wav" src="dist/sound/Demoscene Time Machine - Hyperdrive.mp3" controls loop>
     </audio>
     <audio id="audioB">
       <source type="audio/wav" src="dist/sound/Demoscene Time Machine - Stealth.mp3">
@@ -88,7 +77,6 @@
     <audio id="audio3">
       <source type="audio/wav" src="dist/sound/13827__adcbicycle__18.wav">
     </audio>
-
   </div>
   <!--<footer>
     <div class="copyright">

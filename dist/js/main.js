@@ -1,14 +1,14 @@
 "use strict";
 
 // Press Button Start
-function init() {
+const init = () => {
   // Change Info button Start
   buttonStart();
   // Draw image Game
   eventGo();
   // Run Game
   main();
-}
+};
 
 // Run Game
 const main = () => {

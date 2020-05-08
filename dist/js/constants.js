@@ -36,6 +36,7 @@ contextNext.scale(blockSize, blockSize);
 // Initialize Audios
 const audioA = document.getElementById("audioA");
 audioA.volume = 0.5;
+audioA.loop= true;
 
 const audioB = document.getElementById("audioB");
 audioB.volume = 0.5;

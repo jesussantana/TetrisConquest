@@ -43,7 +43,6 @@ class Player {
 
   //Left/Right Block
   move(offset) {
-    // Check is Left and Right
     this.position.x += offset;
     if (this.collision(board, player)) {
       this.position.x -= offset;
@@ -131,6 +130,6 @@ class Player {
     cancelAnimationFrame(update);
     // EventListener key OFF
     document.removeEventListener("keydown", eventList);
-    dropInterval += 1000000;
+    dropInterval += 10000000;
   }
 }

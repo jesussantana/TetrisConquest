@@ -14,8 +14,7 @@
     2. Blocks go down to complete rows
     3. Completing rows increases punctuation.
     4. Complete x board rows increases score.
-    5. Once complete block board / Win End - NEXT LEVEL
-    6. Blocks collide with ship / top GAME OVER
+    5. Blocks collide top GAME OVER
  
 
 ## MVP - User stories
