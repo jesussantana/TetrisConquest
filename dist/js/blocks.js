@@ -2,7 +2,7 @@
 
 class Blocks {
   constructor() {
-    this.type = "IJLSOTZX";
+    this.type = "IJLSOTUZX";
     this.colors = [
       null,
       "#33FFEE",
@@ -11,8 +11,9 @@ class Blocks {
       "#FFFE33",
       "#62FF33",
       "#5E33FF",
-      "#FF334A",
+      "#FF7F50",
       "#D533FF",
+      "#FF334A",
     ];
   }
   // Iteration 5 - Create Blocks
@@ -61,10 +62,10 @@ class Blocks {
           [0, 0, 0],
         ];
         break;
-      case "Z":
+      case "U":
         return [
-          [7, 7, 0],
-          [0, 7, 7],
+          [7, 0, 7],
+          [7, 7, 7],
           [0, 0, 0],
         ];
         break;
@@ -73,6 +74,13 @@ class Blocks {
           [0, 8, 0],
           [8, 8, 8],
           [0, 8, 0],
+        ];
+        break;
+      case "Z":
+        return [
+          [9, 9, 0],
+          [0, 9, 9],
+          [0, 0, 0],
         ];
         break;
     }

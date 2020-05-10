@@ -27,12 +27,17 @@ class Player {
       this.position.y--;
       // Goto Game over
       this.gameOver;
+      cancelAnimationFrame(update);
       joinBoard(board, player);
       // Player Reset
       this.reset();
       // Check Board
       boardSweep();
       // Update Scores
+      if (player.score > highscore) {
+        highscore = player.score;
+        localStorage.setItem("highscore", highscore);
+      }
       updateScore();
       // Go tu Update Game
       update();
@@ -91,16 +96,16 @@ class Player {
   // Player Reset
   reset() {
     // Check for Create block only the first Time
-    if (nextPlayer.matrix === null) {
-      player.matrix = block.create(
-        block.type[(block.type.length * Math.random()) | 0]
-      );
-    } else {
-      // Assign value Next Block to actual Block
-      player.matrix = nextPlayer.matrix;
-    }
+    nextPlayer.matrix === null
+      ? (player.matrix = block.create(
+          block.type[(block.type.length * Math.random()) | 0]
+        ))
+      : // Assign value Next Block to actual Block
+        (player.matrix = nextPlayer.matrix);
     // +1 Point for Block
-    player.score++;
+    player.score += 10;
+    updateScore();
+    audio3.play();
     // Create Next block
     nextPlayer.matrix = block.create(
       block.type[(block.type.length * Math.random()) | 0]

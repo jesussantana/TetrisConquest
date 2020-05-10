@@ -1,5 +1,4 @@
 "use strict";
-
 // Press Button Start
 const init = () => {
   // Change Info button Start
@@ -52,15 +51,16 @@ const eventList = () => {
   }
 };
 
-document.addEventListener("keydown", eventList);
-
-// Board 20X15
-const board = createMatrix(15, 20);
+// Board 20X17
+const board = createMatrix(17, 20);
 const boardNext = createMatrix(2, 2);
 // Initialize Instances
 const block = new Blocks();
 const nextPlayer = new Player();
 const player = new Player();
-
+//eventStart();
+updateScore();
 // Draw Press Start
-eventStart();
+
+window.addEventListener("load", eventStart);
+document.addEventListener("keydown", eventList);

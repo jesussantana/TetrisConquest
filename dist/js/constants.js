@@ -18,6 +18,10 @@ const nextLevel = 0;
 let start = 0;
 let music = 0;
 
+// High Score
+let highscore = localStorage.getItem("highscore") || 0;
+highscore = +highscore;
+
 // Image for Events
 const imageStart = new Image();
 imageStart.src =
@@ -29,6 +33,9 @@ imageGo.src = "http://esmarketingdigital.com/images/go.png";
 const imageGameOver = new Image();
 imageGameOver.src = "http://esmarketingdigital.com/images/GAMEoVER.png";
 
+const imageBackground = new Image();
+imageBackground.src = "dist/images/Robert.png";
+
 // Scale Blocks
 context.scale(blockSize, blockSize);
 contextNext.scale(blockSize, blockSize);
@@ -36,7 +43,7 @@ contextNext.scale(blockSize, blockSize);
 // Initialize Audios
 const audioA = document.getElementById("audioA");
 audioA.volume = 0.5;
-audioA.loop= true;
+audioA.loop = true;
 
 const audioB = document.getElementById("audioB");
 audioB.volume = 0.5;

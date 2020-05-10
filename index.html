@@ -26,7 +26,8 @@
           <div class="score">
             <h2> TETRIS CONQUEST </h3>
               </br>
-              <p> Points: <span id="score"> 0 </span> </p>
+              <p> High Score: <span id="highscore"></span> </p>
+              <p> Score: <span id="score"> 0 </span> </p>
               <p> Lines: <span id="lines"> 0 </span></p>
               <p> Level: <span id="level"> 0 </span></p>
           </div>
@@ -40,12 +41,12 @@
             <button onclick="generateMusic()" class="btn btn-outline-warning btn-lg" id="music">MUSIC ON</button>
             </br>
             </br>
-          </br>
+            </br>
             <button onclick="init()" class="btn btn-outline-success btn-lg" id="start"> START </button>
           </div>
-          
+
         </div>
-        <div class="col-md-6"><canvas class="game-board" id="board" width="600" height="800"></canvas></div></br>
+        <div class="col-md-6"><canvas class="game-board" id="board" width="675" height="800"></canvas></div></br>
         <div class="col-md-3"><canvas class="default" id="default" width="300" height="400"></canvas>
           <div>
             <hr />
@@ -75,17 +76,9 @@
       <source type="audio/wav" src="dist/sound/mario-bros.mp3">
     </audio>
     <audio id="audio3">
-      <source type="audio/wav" src="dist/sound/13827__adcbicycle__18.wav">
+      <source type="audio/wav" src="dist/sound/mario-coin.mp3">
     </audio>
   </div>
-  <!--<footer>
-    <div class="copyright">
-      <div class="container center">
-         <a href="http://esmarketingdigital.com"><i class="fa fa-copyright" aria-hidden="true"></i> esMarketingDigital
-          2020 </a> 
-      </div>
-    </div>
-  </footer> -->
 
   <!-- Optional JavaScript -->
 

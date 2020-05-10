@@ -64,7 +64,7 @@
 ### Iteration 10 - Buttons
 
     1. Start / Pause
-cd 
+   
 ### Iteration 11 - Next block
 
 ### Iteration 12 - Styles
@@ -78,3 +78,22 @@ cd
 ### Iteration 16 - Increase speed each level
 
 ### Iteration 17 - Sounds & Buttons
+
+### iteration 20 - Game Improvements Update
+
+    1. Board 17*20
+    2. New Block “U”
+    3. New Scoring System
+    4. High Score
+    5. Sound Score++
+    6. Event Images
+
+### URL's Project
+
+[TetrisConquest Presentation](https://prezi.com/i/w5g8cgkt4pz3/tetris-conquest/)
+
+[TetrisConquest Game](https://jesussantana.github.io/TetrisConquest/)
+
+[TetrisConquest Board](https://tetrisconquest.atlassian.net/jira/software/projects/TET/boards/1)
+
+    

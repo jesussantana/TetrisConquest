@@ -1,15 +1,14 @@
 "use strict";
 
 // Draw Game
+// Draw Game
 function drawGame() {
   // Draw Board
-  context.fillStyle = "#000";
-  context.fillRect(0, 0, canvas.width, canvas.height);
+  drawContext(context, canvas);
   drawMatrix(board, { x: 0, y: 0 });
   drawMatrix(player.matrix, player.position);
   //Iteration 11 - Next block
-  contextNext.fillStyle = "#000";
-  contextNext.fillRect(0, 0, canvas.width, canvas.height);
+  drawContext(contextNext, canvasNext);
   drawMatrix(boardNext, { x: 0, y: 0 });
   drawMatrix(nextPlayer.matrix, 0);
 }
@@ -42,6 +41,7 @@ let update = (time = 0) => {
 
 //Iteration 9- Score
 function updateScore() {
+  document.getElementById("highscore").innerText = highscore;
   document.getElementById("score").innerText = player.score;
   document.getElementById("lines").innerText = player.lines;
   document.getElementById("level").innerText = player.level;
@@ -84,20 +84,16 @@ const yImage = (image, scale) => {
 };
 
 // Draw Events Start - Go - Game Over
-const eventImage = (image, x, y, scale) => {
-  contextDefault.clearRect(0, 0, canvasDefault.width, canvasDefault.height);
-  contextDefault.drawImage(
-    image,
-    x,
-    y,
-    image.width * scale,
-    image.height * scale
-  );
+const eventImage = (context, canvas, image, x, y, scale) => {
+  context.clearRect(0, 0, canvas.width, canvas.height);
+  context.drawImage(image, x, y, image.width * scale, image.height * scale);
 };
 // Iteration 13 - Win
 // Iteration 14 - Game Over
 const eventGameOver = () => {
   eventImage(
+    contextDefault,
+    canvasDefault,
     imageGameOver,
     xImage(imageGameOver, scaleImage(imageGameOver)),
     yImage(imageGameOver, scaleImage(imageGameOver)),
@@ -107,6 +103,8 @@ const eventGameOver = () => {
 // Draw Press Start
 const eventStart = () => {
   eventImage(
+    contextDefault,
+    canvasDefault,
     imageStart,
     xImage(imageStart, scaleImage(imageStart)),
     yImage(imageStart, scaleImage(imageStart)),
@@ -116,9 +114,22 @@ const eventStart = () => {
 // Draw Image Game On
 const eventGo = () => {
   eventImage(
+    contextDefault,
+    canvasDefault,
     imageGo,
     xImage(imageGo, scaleImage(imageGo)),
     yImage(imageGo, scaleImage(imageGo)),
     scaleImage(imageGo)
+  );
+};
+
+const eventBack = () => {
+  eventImage(
+    context,
+    canvas,
+    imageBackground,
+    xImage(imageBackground, scaleImage(imageBackground)),
+    yImage(imageBackground, scaleImage(imageBackground)),
+    scaleImage(imageBackground)
   );
 };

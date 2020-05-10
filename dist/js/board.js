@@ -10,6 +10,11 @@ function createMatrix(width, height) {
   }
   return matrix;
 }
+// Draw Context
+function drawContext(context, canvas) {
+  context.fillStyle = "#000";
+  context.fillRect(0, 0, canvas.width, canvas.height);
+}
 
 // Iteration 2 - Create Block
 
@@ -92,7 +97,7 @@ function boardSweep() {
       }
     }
     const row = board.splice(y, 1)[0].fill(0);
-    // Delete Row
+    // add row to board
     board.unshift(row);
     ++y;
     // Score
@@ -108,11 +113,11 @@ function boardSweep() {
       dropInterval -= 50;
       // Change Score
       // Bonus
-      player.score += rowCount * 10 * player.lines;
+      player.score += rowCount * 100 * player.lines;
       break;
     } else {
       // Normal Score
-      player.score += rowCount * 10;
+      player.score += rowCount * 100;
     }
     rowCount *= 2;
   }
