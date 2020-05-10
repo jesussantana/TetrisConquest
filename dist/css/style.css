@@ -105,15 +105,6 @@ button {
     image-rendering: pixelated;
 }
 
-.url {
-    cursor: url(./images/bloque.png), auto;
-}
-
-.copyright {
-    color: black;
-    text-shadow: 4px 4px 8px black;
-}
-
 #audioA {
     display: none;
 }

@@ -24,14 +24,13 @@ highscore = +highscore;
 
 // Image for Events
 const imageStart = new Image();
-imageStart.src =
-  "https://cdn130.picsart.com/235986056050212.png?type=webp&to=min&r=1024";
+imageStart.src = "dist/images/press-start.png";
 
 const imageGo = new Image();
-imageGo.src = "http://esmarketingdigital.com/images/go.png";
+imageGo.src = "dist/images/go.png";
 
 const imageGameOver = new Image();
-imageGameOver.src = "http://esmarketingdigital.com/images/GAMEoVER.png";
+imageGameOver.src = "dist/images/GAMEoVER.png";
 
 const imageBackground = new Image();
 imageBackground.src = "dist/images/Robert.png";

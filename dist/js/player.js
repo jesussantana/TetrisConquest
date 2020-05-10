@@ -7,12 +7,6 @@ class Player {
     this.score = 0;
     this.lines = 0;
     this.level = 0;
-    this.imageGameOver = new Image();
-    this.imageGameOver.src =
-      "https://portal.33bits.net/wp-content/uploads/2018/12/gameoverphrase.jpg";
-    this.imageStart = new Image();
-    this.imageStart.src =
-      "https://i1.sndcdn.com/artworks-000276723650-6g0802-t500x500.jpg";
   }
 
   //Iteration 3 - Move block

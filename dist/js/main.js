@@ -3,8 +3,6 @@
 const init = () => {
   // Change Info button Start
   buttonStart();
-  // Draw image Game
-  eventGo();
   // Run Game
   main();
 };
@@ -21,6 +19,8 @@ const main = () => {
   generateMusic();
   // Execute game
   update();
+  // Draw image Game
+  eventGo();
   // Modify value for button Reset
   start = 1;
 };
