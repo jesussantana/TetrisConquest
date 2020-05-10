@@ -98,11 +98,13 @@ button {
     position: relative;
     box-shadow: 4px 4px 8px black;
     image-rendering: pixelated;
-
 }
 
-.img {
-    image-rendering: pixelated;
+.copyright {
+    color: #E26521; 
+}
+.copyright link{
+    color: green;
 }
 
 #audioA {

@@ -18,7 +18,7 @@
 </head>
 
 <body>
-  <div class="hero-image">
+  <main class="hero-image">
     <video autoplay muted loop id="myVideo">
       <source src="http://esmarketingdigital.com/dist/img/space.mp4" type="video/mp4">
     </video>
@@ -46,9 +46,12 @@
             </br>
             <button onclick="init()" class="btn btn-outline-success btn-lg" id="start"> START </button>
           </div>
-
         </div>
-        <div class="col-md-6"><canvas class="game-board" id="board" width="675" height="800"></canvas></div></br>
+        <div class="col-md-6"><canvas class="game-board" id="board" width="675" height="800"></canvas>
+          </br></br>
+          <p class="copyright"> Design and code <a href="https://linkedin.com/in/chus-santana/" target="_blank"> @JesusSantana
+            </a></p>
+        </div></br>
         <div class="col-md-3"><canvas class="default" id="default" width="300" height="400"></canvas>
           <div>
             <hr />
@@ -65,9 +68,6 @@
         </div>
       </div>
     </div>
-
-
-
     <audio id="audioA">
       <source type="audio/wav" src="dist/sound/Demoscene Time Machine - Hyperdrive.mp3" controls loop>
     </audio>
@@ -83,7 +83,7 @@
     <audio id="audio3">
       <source type="audio/wav" src="dist/sound/mario-coin.mp3">
     </audio>
-  </div>
+  </main>
 
   <!-- Optional JavaScript -->
   <script src="dist/js/constants.js"></script>
