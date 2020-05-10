@@ -101,10 +101,15 @@ button {
 }
 
 .copyright {
-    color: #E26521; 
+    color: #E26521;
 }
-.copyright link{
-    color: green;
+
+.link {
+    color: #5FA745;
+}
+
+.link:hover {
+    color: yellow;
 }
 
 #audioA {
