@@ -1,7 +1,13 @@
 "use strict";
 //Iteration 1 - Create Board
 
-// Create grid-matrix
+// Draw Context
+function drawContext(context, canvas) {
+  context.fillStyle = "#000";
+  context.fillRect(0, 0, canvas.width, canvas.height);
+}
+
+// Create matrix for Board
 function createMatrix(width, height) {
   const matrix = [];
   while (height--) {
@@ -9,11 +15,6 @@ function createMatrix(width, height) {
     matrix.push(new Array(width).fill(0));
   }
   return matrix;
-}
-// Draw Context
-function drawContext(context, canvas) {
-  context.fillStyle = "#000";
-  context.fillRect(0, 0, canvas.width, canvas.height);
 }
 
 // Iteration 2 - Create Block
@@ -115,10 +116,9 @@ function boardSweep() {
       // Bonus
       player.score += rowCount * 100 * player.lines;
       break;
-    } else {
       // Normal Score
-      player.score += rowCount * 100;
-    }
+    } else player.score += rowCount * 100;
+
     rowCount *= 2;
   }
 }

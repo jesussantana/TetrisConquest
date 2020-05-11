@@ -8,8 +8,8 @@ const canvasDefault = document.getElementById("default");
 const contextDefault = canvasDefault.getContext("2d");
 
 // Initialize Constants
-const columns = 15;
-const rows = 40;
+const columns = 17;
+const rows = 20;
 const blockSize = 40;
 const gameOver = 0;
 const nextLevel = 0;

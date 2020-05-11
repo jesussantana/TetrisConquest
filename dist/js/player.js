@@ -16,20 +16,20 @@ class Player {
     // Drow Player
     this.position.y++;
     // Check collisions
-    if (this.collision(board, player)) {
+    if (this.collision(board, this)) {
       // Return to initial position
       this.position.y--;
       // Goto Game over
       this.gameOver;
       cancelAnimationFrame(update);
-      joinBoard(board, player);
+      joinBoard(board, this);
       // Player Reset
       this.reset();
       // Check Board
       boardSweep();
       // Update Scores
-      if (player.score > highscore) {
-        highscore = player.score;
+      if (this.score > highscore) {
+        highscore = this.score;
         localStorage.setItem("highscore", highscore);
       }
       updateScore();
@@ -43,7 +43,7 @@ class Player {
   //Left/Right Block
   move(offset) {
     this.position.x += offset;
-    if (this.collision(board, player)) {
+    if (this.collision(board, this)) {
       this.position.x -= offset;
     }
   }
@@ -74,7 +74,7 @@ class Player {
     // Rotate Block
     block.rotate(this.matrix, direction);
     // Check Collisions
-    while (this.collision(board, player)) {
+    while (this.collision(board, this)) {
       this.position.x += offset;
       offset = -(offset + (offset > 0 ? 1 : -1));
       // Return to initial position
@@ -109,7 +109,7 @@ class Player {
     player.position.x =
       ((board[0].length / 2) | 0) - ((player.matrix[0].length / 2) | 0);
     // Check Collisions
-    if (player.collision(board, player)) {
+    if (player.collision(board, this)) {
       board.forEach((row) => row.fill(0));
       // If collision up Game over
       cancelAnimationFrame(update);

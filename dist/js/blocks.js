@@ -93,7 +93,7 @@ class Blocks {
     // We go through the matrix
     for (let y = 0; y < matrix.length; y++) {
       for (let x = 0; x < y; ++x) {
-        // For each position
+        // For each two positions
         [matrix[x][y], matrix[y][x]] =
           // Invert the positions to rotate
           [matrix[y][x], matrix[x][y]];
