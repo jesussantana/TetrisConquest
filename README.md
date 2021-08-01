@@ -1,5 +1,13 @@
 # (Tetris Conquest)
 
+## URL's Project
+
+[TetrisConquest Game](https://jesussantana.github.io/TetrisConquest/)
+
+[TetrisConquest Presentation](https://prezi.com/i/w5g8cgkt4pz3/tetris-conquest/)
+
+[TetrisConquest Board](https://tetrisconquest.atlassian.net/jira/software/projects/TET/boards/1)
+
 ## Description
 
     The game is a tetris version set in planetary conquest by terraforming.
