@@ -1,4 +1,4 @@
-# (Tetris Conquest)
+# Tetris Conquest
 
 ## URL's Project
 
